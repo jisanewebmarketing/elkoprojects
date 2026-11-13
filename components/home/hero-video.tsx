@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { ArrowRight, Pause, Play } from 'lucide-react'
+import { combinedExperienceLine } from '@/content/company'
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -59,7 +60,7 @@ export function HeroVideo() {
                 href="/book-a-consultation"
                 className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                Book a Consultation <ArrowRight className="size-4" aria-hidden />
+                Book a free site visit &amp; quote <ArrowRight className="size-4" aria-hidden />
               </Link>
               <Link
                 href="/completed-projects"
@@ -86,7 +87,7 @@ export function HeroVideo() {
               </div>
               <p className="text-sm leading-tight">
                 <span className="block font-semibold">Elias Nader & Marko Bratkovic</span>
-                <span className="text-muted-foreground">Directors · 22+ years combined</span>
+                <span className="text-muted-foreground">Directors · {combinedExperienceLine}</span>
               </p>
             </div>
           </aside>

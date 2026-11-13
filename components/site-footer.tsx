@@ -1,6 +1,16 @@
 import Link from 'next/link'
-import { contact, credentials, mainNav, services } from '@/lib/site-data'
+import { contact, company, licensing } from '@/content/company'
+import { services } from '@/content/services'
+import { footerLegal } from '@/content/navigation'
 import { Wordmark } from '@/components/wordmark'
+
+const companyLinks = [
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Our Process', href: '/our-process' },
+  { label: 'Safety', href: '/safety' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Contact', href: '/contact-us' },
+]
 
 export function SiteFooter() {
   return (
@@ -9,13 +19,27 @@ export function SiteFooter() {
         <div className="flex flex-col gap-4">
           <Wordmark className="h-20" />
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Premium residential, commercial and remedial construction across Greater Sydney. Director-led on every project.
+            Premium residential, commercial, remedial and retirement living construction across Greater Sydney.
+            Director-led on every project.
           </p>
-          <p className="text-xs text-muted-foreground">ABN 33 658 065 822</p>
+          <dl className="mt-2 flex flex-col gap-1 text-xs text-muted-foreground">
+            <div>
+              <dt className="inline">ABN </dt>
+              <dd className="inline font-medium text-foreground">{company.abn}</dd>
+            </div>
+            <div>
+              <dt className="inline">NSW Contractor Licence </dt>
+              <dd className="inline font-medium text-foreground">385208C</dd>
+            </div>
+            <div>
+              <dt className="inline">Building Practitioner </dt>
+              <dd className="inline font-medium text-foreground">BUP4254517</dd>
+            </div>
+          </dl>
         </div>
 
         <div>
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-widest">Services</h2>
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-widest">What we build</h2>
           <ul className="flex flex-col gap-2 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
@@ -25,11 +49,27 @@ export function SiteFooter() {
               </li>
             ))}
             <li>
-              <Link href="/completed-projects" className="hover:text-primary">
-                Completed Projects
-              </Link>
+              <Link href="/display-units" className="hover:text-primary">Display Units</Link>
+            </li>
+            <li>
+              <Link href="/completed-projects" className="hover:text-primary">Projects</Link>
+            </li>
+            <li>
+              <Link href="/tools" className="hover:text-primary">Tools</Link>
             </li>
           </ul>
+        </div>
+
+        <div>
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-widest">Company</h2>
+          <ul className="flex flex-col gap-2 text-sm">
+            {companyLinks.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-primary">{l.label}</Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-xs text-xs leading-relaxed text-muted-foreground">{licensing.safety}</p>
         </div>
 
         <div>
@@ -56,29 +96,20 @@ export function SiteFooter() {
             <li><a href={contact.tiktok} className="underline-offset-4 hover:underline">TikTok</a></li>
           </ul>
         </div>
-
-        <div>
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-widest">Licensed & insured</h2>
-          <dl className="flex flex-col gap-2 text-sm">
-            {credentials.map((c) => (
-              <div key={c.label} className="flex justify-between gap-4 border-b border-border pb-2">
-                <dt className="text-muted-foreground">{c.label}</dt>
-                <dd className="font-medium">{c.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
       </div>
+
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between lg:px-8">
-          <p>{`© ${new Date().getFullYear()} Elko Projects Pty Ltd. All rights reserved.`}</p>
+          <p>{`© ${new Date().getFullYear()} ${company.legalName}. All rights reserved.`}</p>
           <ul className="flex flex-wrap gap-4">
-            {mainNav.slice(-2).map((n) => (
-              <li key={n.href}>
-                <Link href={n.href} className="hover:text-foreground">{n.label}</Link>
+            {footerLegal.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className="hover:text-foreground">{l.label}</Link>
               </li>
             ))}
-            <li><Link href="/book-a-consultation" className="hover:text-foreground">Book a Consultation</Link></li>
+            <li>
+              <Link href="/book-a-consultation" className="hover:text-foreground">Free site visit &amp; quote</Link>
+            </li>
           </ul>
         </div>
       </div>

@@ -31,7 +31,7 @@ export function DirectorsSection() {
           <SectionHeading
             eyebrow="Overseen by the Directors"
             title="Two directors. One standard."
-            body="Elias and Marko have known each other for over 20 years. Elko is small enough that both are personally involved in every build, and structured enough to deliver to the standard Sydney's best clients expect."
+            body="Elias and Marko co-founded Elko in 2022 after a decade each across residential, commercial and government construction. Elko is small enough that both directors are personally involved in every build, and structured enough to deliver to the standard Sydney's best clients expect."
           />
 
           <ul className="grid gap-4 sm:grid-cols-2">

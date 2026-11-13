@@ -25,7 +25,7 @@ export function CtaBand({ image = '/images/st-ives.jpg' }: { image?: string }) {
               href="/book-a-consultation"
               className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-90"
             >
-              Book a Consultation <ArrowRight className="size-4" aria-hidden />
+              Book a free site visit &amp; quote <ArrowRight className="size-4" aria-hidden />
             </Link>
             <a href={contact.phones[0].href} className="text-sm font-medium underline-offset-4 hover:underline">
               {`Or call Elias on ${contact.phones[0].display}`}

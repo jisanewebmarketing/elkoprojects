@@ -1,14 +1,11 @@
 import { Star } from 'lucide-react'
-import { reviews } from '@/lib/site-data'
+import { reviews, reviewsHeadline } from '@/content/company'
 import { SectionHeading } from '@/components/section-heading'
 
 export function ReviewsSection() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
-      <SectionHeading
-        eyebrow="Client reviews"
-        title="50+ five-star reviews across Google, Facebook and HiPages."
-      />
+      <SectionHeading eyebrow="Client reviews" title={reviewsHeadline} />
       <ul className="mt-12 grid gap-4 md:grid-cols-3">
         {reviews.map((r) => (
           <li key={r.name}>
