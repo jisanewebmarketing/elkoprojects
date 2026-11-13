@@ -1,59 +1,43 @@
-// Elko Projects — primary navigation IA (spec Phase 1 mega-menu).
-// Every item carries a one-line description shown in the desktop mega panel and
-// under each label in the mobile drawer.
+// Elko Projects — primary navigation IA (redesigned mega-menu).
+// The six service lines are grouped under a single "Services" mega panel so the
+// top bar stays uncluttered on desktop. Each link carries a one-line description
+// (shown in the desktop panel and the mobile drawer) and an optional icon.
 //
 // NOTE: "Projects" points at /completed-projects for now; Phase 11 introduces
 // /projects (grid + /projects/[slug]) and this href moves across then.
 
-import { services } from './services'
-
-export type NavChild = { label: string; href: string; description: string }
-export type NavItem = { label: string; href: string; description: string; children?: NavChild[] }
-
-const residential = services.find((s) => s.slug === 'residential')
-const commercial = services.find((s) => s.slug === 'commercial')
-
-function childrenFor(serviceSlug: string, items = [] as NonNullable<(typeof services)[number]['items']>): NavChild[] {
-  return items.map((i) => ({
-    label: i.title,
-    href: `/${serviceSlug}/${i.slug}`,
-    description: i.summary,
-  }))
+export type NavLink = { label: string; href: string; description: string; icon?: string }
+export type NavItem = {
+  label: string
+  href?: string
+  description?: string
+  /** Render children as a wide mega panel (used for Services). */
+  mega?: boolean
+  children?: NavLink[]
 }
+
+// The six service lines, surfaced in the Services mega panel.
+export const serviceLines: NavLink[] = [
+  { label: 'Residential', href: '/residential', description: 'Renovations, new homes, duplexes and granny flats.', icon: 'Home' },
+  { label: 'Commercial', href: '/commercial', description: 'Office, hospitality, medical and retail fit outs.', icon: 'Building2' },
+  { label: 'Remedial & Strata', href: '/remedial', description: 'Facades, balconies, waterproofing and strata rectification.', icon: 'HardHat' },
+  { label: 'Display Units', href: '/display-units', description: 'Display suite fit outs for developers.', icon: 'LayoutTemplate' },
+  { label: 'Retirement Living', href: '/retirement-living', description: 'Renovations, refurbishments and compliance for villages.', icon: 'HeartHandshake' },
+  { label: 'Building Inspections', href: '/building-inspections', description: 'Builder-led inspections with 48–72 hour reports.', icon: 'ClipboardCheck' },
+]
+
+export const aboutLinks: NavLink[] = [
+  { label: 'About Us', href: '/about-us', description: 'Two directors, one standard.', icon: 'Users' },
+  { label: 'Our Process', href: '/our-process', description: 'Consultation, design, construct, handover.', icon: 'Route' },
+  { label: 'Safety', href: '/safety', description: 'WHS plans and SWMS on every project.', icon: 'ShieldCheck' },
+]
 
 export const mainNav: NavItem[] = [
   {
-    label: 'Residential',
-    href: '/residential',
-    description: 'Renovations, new homes, duplexes and granny flats.',
-    children: childrenFor('residential', residential?.items),
-  },
-  {
-    label: 'Commercial',
-    href: '/commercial',
-    description: 'Office, hospitality, medical and retail fit outs.',
-    children: childrenFor('commercial', commercial?.items),
-  },
-  {
-    label: 'Remedial & Strata',
-    href: '/remedial',
-    description: 'Facades, balconies, waterproofing and strata rectification.',
-    // Children (8 remedial sub-pages) are added in Phase 2.
-  },
-  {
-    label: 'Display Units',
-    href: '/display-units',
-    description: 'Display suite fit outs for developers.',
-  },
-  {
-    label: 'Retirement Living',
-    href: '/retirement-living',
-    description: 'Renovations, refurbishments and compliance for villages.',
-  },
-  {
-    label: 'Building Inspections',
-    href: '/building-inspections',
-    description: 'Builder-led inspections with 48–72 hour reports.',
+    label: 'Services',
+    description: 'What we build across Greater Sydney.',
+    mega: true,
+    children: serviceLines,
   },
   {
     label: 'Projects',
@@ -69,11 +53,7 @@ export const mainNav: NavItem[] = [
     label: 'About',
     href: '/about-us',
     description: 'Who we are, how we work and how we keep sites safe.',
-    children: [
-      { label: 'About Us', href: '/about-us', description: 'Two directors, one standard.' },
-      { label: 'Our Process', href: '/our-process', description: 'Consultation, design, construct, handover.' },
-      { label: 'Safety', href: '/safety', description: 'WHS plans and SWMS on every project.' },
-    ],
+    children: aboutLinks,
   },
   {
     label: 'Insights',
