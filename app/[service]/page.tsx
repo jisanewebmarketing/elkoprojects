@@ -15,8 +15,10 @@ import { getService, services } from '@/lib/site-data'
 
 export const dynamicParams = false
 
+// /remedial and its sub-pages are served by the dedicated app/remedial/* routes
+// (spec Phase 2), so exclude the remedial slug from this dynamic route.
 export function generateStaticParams() {
-  return services.map((s) => ({ service: s.slug }))
+  return services.filter((s) => s.slug !== 'remedial').map((s) => ({ service: s.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ service: string }> }): Promise<Metadata> {
