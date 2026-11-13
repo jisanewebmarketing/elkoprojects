@@ -17,7 +17,7 @@ export function SiteFooter() {
     <footer className="border-t border-border bg-secondary">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div className="flex flex-col gap-4">
-          <Wordmark className="h-20" />
+          <Wordmark className="h-auto w-40" priority={false} />
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
             Premium residential, commercial, remedial and retirement living construction across Greater Sydney.
             Director-led on every project.
