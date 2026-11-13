@@ -12,9 +12,9 @@ import { getService, services } from '@/lib/site-data'
 
 export const dynamicParams = false
 
-// Residential sub-pages are served by the dedicated app/residential/* routes
-// (spec Phase 3); exclude them here to avoid a route conflict.
-const DEDICATED = new Set(['remedial', 'residential'])
+// Residential (Phase 3) and Commercial (Phase 4) sub-pages are served by their
+// dedicated app/<slug>/* routes; exclude them here to avoid a route conflict.
+const DEDICATED = new Set(['remedial', 'residential', 'commercial'])
 export function generateStaticParams() {
   return services
     .filter((s) => !DEDICATED.has(s.slug))
