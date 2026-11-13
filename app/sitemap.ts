@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { services } from '@/content/services'
 import { remedialPages } from '@/content/remedial'
+import { residentialPages } from '@/content/residential'
 import { absoluteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,8 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ])
 
   const remedialPaths = remedialPages.map((p) => `/remedial/${p.slug}`)
+  const residentialPaths = residentialPages.map((p) => `/residential/${p.slug}`)
 
-  return [...staticPaths, ...servicePaths, ...remedialPaths].map((path) => ({
+  return [...staticPaths, ...servicePaths, ...remedialPaths, ...residentialPaths].map((path) => ({
     url: absoluteUrl(path),
     lastModified: now,
     changeFrequency: 'monthly',

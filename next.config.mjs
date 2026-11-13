@@ -6,6 +6,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      // Residential slugs renamed in Phase 3.
+      { source: '/residential/complete-renovations', destination: '/residential/complete-house-renovations', permanent: true },
+      { source: '/residential/new-home-builds', destination: '/residential/custom-home-new-builds', permanent: true },
+    ]
+  },
   async headers() {
     return [
       {
