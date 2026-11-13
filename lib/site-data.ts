@@ -32,8 +32,8 @@ export type { Service, SubService } from '@/content/services'
 export { projects, getProject } from '@/content/projects'
 export type { Project, ProjectCategory, ProjectType } from '@/content/projects'
 
-export { mainNav, footerLegal } from '@/content/navigation'
-export type { NavItem, NavChild } from '@/content/navigation'
+export { mainNav, footerLegal, serviceLines, aboutLinks } from '@/content/navigation'
+export type { NavItem, NavLink } from '@/content/navigation'
 
 // Homepage "how we deliver" steps. Spec Phase 8 revises these labels to
 // Consultation / Design / Construct / Handover and relocates them.
