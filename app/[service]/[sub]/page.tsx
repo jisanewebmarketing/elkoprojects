@@ -5,6 +5,9 @@ import { PageHero } from '@/components/page-hero'
 import { FaqList } from '@/components/faq-list'
 import { CtaBand } from '@/components/cta-band'
 import { RelatedProjects } from '@/components/related-projects'
+import { CredentialsStrip } from '@/components/credentials-strip'
+import { JsonLd } from '@/components/json-ld'
+import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { getService, services } from '@/lib/site-data'
 
 export const dynamicParams = false
@@ -21,8 +24,15 @@ async function resolve(params: Promise<{ service: string; sub: string }>) {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ service: string; sub: string }> }): Promise<Metadata> {
-  const { item } = await resolve(params)
-  return item ? { title: item.title, description: item.summary } : {}
+  const { s, item } = await resolve(params)
+  if (!s || !item) return {}
+  const path = `/${s.slug}/${item.slug}`
+  return {
+    title: item.title,
+    description: item.summary,
+    alternates: { canonical: path },
+    openGraph: { title: `${item.title} | Elko Projects`, description: item.summary, url: path, images: item.image ? [item.image] : undefined },
+  }
 }
 
 const deliver = [
@@ -35,18 +45,21 @@ export default async function SubServicePage({ params }: { params: Promise<{ ser
   const { s, item } = await resolve(params)
   if (!s || !item) notFound()
 
+  const crumbs = [
+    { label: s.title, href: `/${s.slug}` },
+    { label: item.title, href: `/${s.slug}/${item.slug}` },
+  ]
+
   return (
     <>
-      <PageHero
-        eyebrow={s.title}
-        title={item.title}
-        intro={item.summary}
-        image={item.image}
-        crumbs={[
-          { label: s.title, href: `/${s.slug}` },
-          { label: item.title, href: `/${s.slug}/${item.slug}` },
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          serviceSchema({ name: item.title, description: item.summary, url: `/${s.slug}/${item.slug}` }),
+          ...(s.faqs.length ? [faqSchema(s.faqs)] : []),
         ]}
       />
+      <PageHero eyebrow={s.title} title={item.title} intro={item.summary} image={item.image} crumbs={crumbs} />
 
       <section className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-2 lg:px-8">
         <div>
@@ -77,6 +90,7 @@ export default async function SubServicePage({ params }: { params: Promise<{ ser
       </section>
 
       <RelatedProjects category={s.slug === 'residential' ? 'Residential' : 'Commercial'} />
+      <CredentialsStrip className="py-8" />
       <FaqList faqs={s.faqs} />
       <CtaBand image={item.image} />
     </>

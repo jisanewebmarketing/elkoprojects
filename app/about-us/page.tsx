@@ -18,8 +18,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Elko Projects"
-        title="A $5M+ a year builder, run by the people on your site."
-        intro="Elko is a privately owned construction company built on a 20-year friendship and a simple rule: the directors you meet are the directors who build your project."
+        title="A builder run by the people on your site."
+        intro="Elko is a privately owned, director-led construction company built on a simple rule: the directors you meet are the directors who build your project."
         image="/images/on-site-directors.jpg"
         crumbs={[{ label: 'About us', href: '/about-us' }]}
       />

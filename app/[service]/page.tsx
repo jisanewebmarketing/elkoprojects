@@ -8,6 +8,9 @@ import { FaqList } from '@/components/faq-list'
 import { CtaBand } from '@/components/cta-band'
 import { RelatedProjects } from '@/components/related-projects'
 import { InspectionQuote } from '@/components/inspection-quote'
+import { CredentialsStrip } from '@/components/credentials-strip'
+import { JsonLd } from '@/components/json-ld'
+import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { getService, services } from '@/lib/site-data'
 
 export const dynamicParams = false
@@ -19,7 +22,14 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ service: string }> }): Promise<Metadata> {
   const { service } = await params
   const s = getService(service)
-  return s ? { title: s.title, description: s.intro } : {}
+  if (!s) return {}
+  const path = `/${s.slug}`
+  return {
+    title: s.title,
+    description: s.intro,
+    alternates: { canonical: path },
+    openGraph: { title: `${s.title} | Elko Projects`, description: s.intro, url: path, images: s.image ? [s.image] : undefined },
+  }
 }
 
 const categoryFor: Record<string, string> = {
@@ -34,9 +44,18 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   const s = getService(service)
   if (!s) notFound()
 
+  const crumbs = [{ label: s.title, href: `/${s.slug}` }]
+
   return (
     <>
-      <PageHero eyebrow={s.short} title={s.title} intro={s.intro} image={s.image} crumbs={[{ label: s.title, href: `/${s.slug}` }]} />
+      <JsonLd
+        data={[
+          breadcrumbSchema(crumbs),
+          serviceSchema({ name: s.title, description: s.intro, url: `/${s.slug}` }),
+          ...(s.faqs.length ? [faqSchema(s.faqs)] : []),
+        ]}
+      />
+      <PageHero eyebrow={s.short} title={s.title} intro={s.intro} image={s.image} crumbs={crumbs} />
 
       {s.items && (
         <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
@@ -86,6 +105,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
 
       {categoryFor[s.slug] && <RelatedProjects category={categoryFor[s.slug]} />}
 
+      <CredentialsStrip className="py-8" />
       <FaqList faqs={s.faqs} />
       <CtaBand image={s.image} />
     </>

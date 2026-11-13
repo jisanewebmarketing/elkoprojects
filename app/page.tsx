@@ -1,4 +1,5 @@
 import { HeroVideo } from '@/components/home/hero-video'
+import { StatsBand } from '@/components/home/stats-band'
 import { CredentialsBar } from '@/components/home/credentials-bar'
 import { ServiceLanes } from '@/components/home/service-lanes'
 import { FeaturedProjects } from '@/components/home/featured-projects'
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <HeroVideo />
+      <StatsBand />
       <CredentialsBar />
       <ServiceLanes />
       <FeaturedProjects />

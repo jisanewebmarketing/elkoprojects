@@ -5,8 +5,10 @@ import { projects } from '@/lib/site-data'
 import { SectionHeading } from '@/components/section-heading'
 
 export function FeaturedProjects() {
-  const [lead, ...rest] = projects
+  const featured = projects.filter((p) => p.featured)
+  const [lead, ...rest] = featured
   const side = rest.slice(0, 4)
+  if (!lead) return null
 
   return (
     <section className="bg-secondary py-24">
