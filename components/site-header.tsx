@@ -77,9 +77,9 @@ export function SiteHeader() {
         transparent ? 'bg-transparent text-ink-foreground' : 'border-b border-border bg-background/95 text-foreground backdrop-blur',
       )}
     >
-      <div className="relative mx-auto flex h-18 max-w-[90rem] items-center justify-between gap-4 px-5 lg:px-8">
+      <div className="relative mx-auto flex h-20 max-w-[90rem] items-center justify-between gap-4 px-5 lg:h-24 lg:px-8">
         <Link href="/" aria-label="Elko Projects home" className="shrink-0">
-          <Wordmark inverted={transparent} className="h-11" />
+          <Wordmark inverted={transparent} className="h-14 lg:h-18" />
         </Link>
 
         <nav aria-label="Main" className="hidden lg:block">
@@ -228,7 +228,7 @@ function MobileDrawer({ pathname }: { pathname: string }) {
     <nav
       id="mobile-nav"
       aria-label="Mobile"
-      className="h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background text-foreground lg:hidden"
+      className="h-[calc(100dvh-5rem)] overflow-y-auto border-t border-border bg-background text-foreground lg:hidden"
     >
       <ul className="mx-auto flex max-w-[90rem] flex-col px-5 py-3">
         {mainNav.map((item) => {
