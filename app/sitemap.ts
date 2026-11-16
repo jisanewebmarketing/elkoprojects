@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/book-a-consultation',
     '/completed-projects',
     '/display-units',
-    '/tools',
     '/insights',
     '/privacy-policy',
     '/terms-of-use',

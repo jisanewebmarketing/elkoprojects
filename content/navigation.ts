@@ -45,11 +45,6 @@ export const mainNav: NavItem[] = [
     description: 'Completed homes, workplaces and buildings across Sydney.',
   },
   {
-    label: 'Tools',
-    href: '/tools',
-    description: 'Free calculators and checkers for owners and committees.',
-  },
-  {
     label: 'About',
     href: '/about-us',
     description: 'Who we are, how we work and how we keep sites safe.',
