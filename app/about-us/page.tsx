@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { SectionHeading } from '@/components/section-heading'
 import { DirectorsSection } from '@/components/directors-section'
+import { OnSiteStrip } from '@/components/on-site-strip'
 import { HowWeProtectYou } from '@/components/how-we-protect-you'
 import { CompliancePanel } from '@/components/compliance-panel'
 import { CredentialsStrip } from '@/components/credentials-strip'
@@ -49,6 +50,8 @@ export default function AboutPage() {
       </section>
 
       <DirectorsSection />
+
+      <OnSiteStrip />
 
       {/* Values */}
       <section className="bg-secondary py-20">

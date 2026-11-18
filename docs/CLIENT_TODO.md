@@ -47,8 +47,18 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 - [x] **The Osborne Display Suite** (Lane Cove) — real photos added (hero +
       9-image gallery) from the client's "ELKO 28.11.25" Dropbox folder (display
       kitchen, building model, show bathrooms). Curated 10 of 142.
-- [ ] Project photos for: Willoughby, Ingleburn, Surry Hills (remedial), Potts
-      Point apartment, Monsignor John Peoples Units. Currently placeholder images.
+- [x] **Team / on-site photos added** from the client's "Edited Content" Dropbox
+      ("Headshots and Team Photos"): an "On the tools" band (6 real on-site + team
+      shots) now runs on the **home page and About**, and a directors photo sits
+      on the **Contact** page. Files in `/public/images/team` and
+      `/public/images/contact-directors.jpg`.
+- [ ] Project photos for: **Willoughby, Ingleburn, Surry Hills** (remedial), Potts
+      Point apartment, Monsignor John Peoples Units — still placeholder images.
+      NOTE: the Dropbox "Project Photos" folder only contains two shoots
+      (ELKO 11.6.25 → Dural, ELKO 28.11.25 → Osborne); there are **no separate
+      folders** for these projects yet, so the client needs to supply them.
+      (Unused so far: the Dropbox "Before and Afters", "Reels" and "Videography"
+      folders — more short-form video is available if wanted.)
 - [ ] Scope-of-works note per chosen photo for each project (for the Phase 11
       `/projects/[slug]` detail template `{ image, caption, scope }` array).
 
