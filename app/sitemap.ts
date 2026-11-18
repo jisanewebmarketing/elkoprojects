@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { services } from '@/content/services'
-import { remedialPages } from '@/content/remedial'
 import { residentialPages } from '@/content/residential'
+import { commercialPages } from '@/content/commercial'
+import { remedialPages } from '@/content/remedial'
 import { absoluteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -21,15 +22,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms-of-use',
   ]
 
-  const servicePaths = services.flatMap((s) => [
-    `/${s.slug}`,
-    ...(s.items ?? []).map((i) => `/${s.slug}/${i.slug}`),
-  ])
+  // Service hubs (each served by a dedicated route).
+  const hubPaths = services.map((s) => `/${s.slug}`)
 
-  const remedialPaths = remedialPages.map((p) => `/remedial/${p.slug}`)
-  const residentialPaths = residentialPages.map((p) => `/residential/${p.slug}`)
+  // Dedicated sub-pages (canonical slugs).
+  const subPaths = [
+    ...residentialPages.map((p) => `/residential/${p.slug}`),
+    ...commercialPages.map((p) => `/commercial/${p.slug}`),
+    ...remedialPages.map((p) => `/remedial/${p.slug}`),
+  ]
 
-  return [...staticPaths, ...servicePaths, ...remedialPaths, ...residentialPaths].map((path) => ({
+  return [...staticPaths, ...hubPaths, ...subPaths].map((path) => ({
     url: absoluteUrl(path),
     lastModified: now,
     changeFrequency: 'monthly',

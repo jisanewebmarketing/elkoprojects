@@ -11,6 +11,8 @@ export function InspectionQuote() {
         <h2 className="text-3xl font-extrabold md:text-4xl">Request an inspection quote</h2>
         <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">
           Tell us the address and the type of inspection. A licensed builder will confirm price and availability.
+          Inspections start from <span className="font-semibold text-foreground">$600 + GST</span>, depending on the
+          property and inspection type.
         </p>
         <div className="mt-8">
           <EnquiryForm
@@ -24,7 +26,16 @@ export function InspectionQuote() {
                 label: 'Inspection type',
                 type: 'select',
                 required: true,
-                options: ['Pre and post construction', 'Pre and post lease', 'Pre and post purchase'],
+                options: [
+                  'Pre-construction',
+                  'Post-construction',
+                  'Pre-lease',
+                  'Post-lease',
+                  'Pre-purchase',
+                  'Post-purchase',
+                  'Dilapidation report',
+                  'Other',
+                ],
               },
             ]}
           />
