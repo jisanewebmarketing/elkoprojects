@@ -255,7 +255,7 @@ export const remedialPages: RemedialPage[] = [
     slug: 'compliance-inspections-rectifications',
     h1: 'Compliance inspections and rectifications',
     summary: 'Inspect, report in 48–72 hours, then rectify what we find.',
-    metaTitle: 'Building Compliance Inspections & Rectification Sydney | Elko Projects',
+    metaTitle: 'Compliance Inspections & Rectification Sydney | Elko Projects',
     metaDescription:
       'Building compliance inspections and rectification, Sydney: defect identification, 48–72 hour reports and rectification by the same team.',
     eyebrow: 'Remedial & Strata',

@@ -13,11 +13,11 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Elko Projects | Quality Builds, Overseen by the Directors | Sydney',
+    default: 'Elko Projects | Director-Led Construction, Sydney',
     template: '%s | Elko Projects',
   },
   description:
-    'Premium residential, commercial, retirement living and remedial construction across Greater Sydney. Director-led by Elias Nader and Marko Bratkovic on every project.',
+    'Premium residential, commercial, retirement living and remedial construction across Greater Sydney — director-led on every project.',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',

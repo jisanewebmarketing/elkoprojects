@@ -10,7 +10,7 @@ import { remedialPages } from '@/content/remedial'
 export const metadata: Metadata = {
   title: 'Book a free site visit & quote',
   description:
-    'Tell us about your project and a director will arrange a free on-site visit and a clear, documented quote. Residential, commercial, remedial, retirement living and inspections.',
+    'Tell us about your project and a director will arrange a free on-site visit and a clear, documented quote — residential, commercial, remedial and inspections.',
   alternates: { canonical: '/book-a-consultation' },
   openGraph: {
     title: 'Book a free site visit & quote | Elko Projects',

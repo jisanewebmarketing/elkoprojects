@@ -4,6 +4,7 @@ import { residentialPages } from '@/content/residential'
 import { commercialPages } from '@/content/commercial'
 import { remedialPages } from '@/content/remedial'
 import { projects } from '@/content/projects'
+import { approvedDrawings } from '@/content/drawings'
 import { absoluteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -35,7 +36,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const projectPaths = projects.map((p) => `/projects/${p.slug}`)
 
-  return [...staticPaths, ...hubPaths, ...subPaths, ...projectPaths].map((path) => ({
+  // Phase 12: only list the drawings showcase once approved images exist.
+  const drawingsPath = approvedDrawings.length > 0 ? ['/projects/design-and-documentation'] : []
+
+  return [...staticPaths, ...hubPaths, ...subPaths, ...projectPaths, ...drawingsPath].map((path) => ({
     url: absoluteUrl(path),
     lastModified: now,
     changeFrequency: 'monthly',

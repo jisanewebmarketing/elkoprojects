@@ -14,7 +14,7 @@ import { getFaqs } from '@/content/faqs'
 const faqs = getFaqs('building-inspections')
 
 export const metadata: Metadata = {
-  title: 'Building Inspections Sydney | Elko Building Inspections',
+  title: 'Building Inspections Sydney',
   description:
     'Builder-led building inspections across Sydney: pre and post construction, lease and purchase. Priority-ranked reports in 48–72 hours, from $600 + GST.',
   alternates: { canonical: '/building-inspections' },

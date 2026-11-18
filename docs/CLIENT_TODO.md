@@ -49,8 +49,15 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
       blacked-out (not blurred), flattened to PNG/WebP, and **signed off** before
       it is committed. Track sign-off here:
   - [ ] (none supplied yet)
-- [ ] **Rate ranges** if the renovation / granny-flat cost estimators are wanted
-      (Phase 14). Until supplied, any estimator stays behind a feature flag.
+      The showcase is already scaffolded: drop approved images in
+      `/public/images/drawings/` and add an entry to `content/drawings.ts`. The
+      `/projects/design-and-documentation` page and its sitemap entry turn on
+      automatically once that list is non-empty (it 404s while empty).
+- [ ] **Rate ranges** — the invented-rate cost estimator was **removed** (ground
+      rule #2). If renovation / granny-flat estimators are wanted (Phase 14),
+      supply real client rate ranges and they can be rebuilt. The pricing-free
+      `/tools` page (strata levy calculator, warranty checker, inspection
+      finder) was **deleted at the client's request**.
 
 ## Legal
 
@@ -110,3 +117,25 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
   `confirmed` flag each; the homepage stats band, the reviews heading and the
   hero director badge all degrade gracefully when a stat is unconfirmed and the
   flag is off.
+
+## Phase 17 — QA pass (automated checks, 18 Nov 2026)
+
+Run against a production build (`pnpm build && pnpm start`), crawling all
+internal links from the homepage (53 routes):
+
+- **Broken links:** none. Every linked page returns 200.
+- **Titles / descriptions:** all unique; descriptions ≤160 chars; titles within
+  SERP length (≤~60 rendered).
+- **JSON-LD:** every `application/ld+json` block parses (Organization, WebSite,
+  BreadcrumbList, Service, FAQPage, CreativeWork).
+- **Confidential route:** `/projects/design-and-documentation` correctly 404s
+  while `content/drawings.ts` is empty, and is excluded from the sitemap.
+- `tsc --noEmit` clean; `next build` clean.
+
+Still to do with the client before go-live (manual):
+- [ ] Lighthouse ≥ 90 (Performance / A11y / Best Practices / SEO) on staging
+      for the homepage and one page per template.
+- [ ] End-to-end form test with `RESEND_API_KEY` set — confirm the office and
+      the enquirer both receive the email, including an attachment.
+- [ ] Review this whole file with the client and switch `NEXT_PUBLIC_SHOW_
+      UNCONFIRMED_STATS` on only once the numbers are signed off.
