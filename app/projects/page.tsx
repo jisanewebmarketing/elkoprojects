@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { ProjectGallery } from '@/components/project-gallery'
+import { ProjectReels } from '@/components/project-reels'
 import { CtaBand } from '@/components/cta-band'
 import { JsonLd } from '@/components/json-ld'
 import { breadcrumbSchema } from '@/lib/seo'
 import { projects } from '@/content/projects'
+import { reels } from '@/content/reels'
 
 export const metadata: Metadata = {
   title: 'Projects',
@@ -31,6 +33,13 @@ export default function ProjectsPage() {
         crumbs={crumbs}
       />
       <ProjectGallery projects={projects} />
+      <ProjectReels
+        reels={reels}
+        eyebrow="On site"
+        title="On site, in motion"
+        intro="Short walk-throughs from recent projects."
+        className="bg-secondary py-20"
+      />
       <CtaBand />
     </>
   )
