@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { PageHero } from '@/components/page-hero'
 import { EnquiryForm } from '@/components/enquiry-form'
 import { contact, serviceAreas } from '@/lib/site-data'
@@ -36,6 +37,18 @@ export default function ContactPage() {
           />
         </div>
         <aside className="flex flex-col gap-8 lg:col-span-5">
+          <figure className="relative aspect-[5/4] overflow-hidden rounded-md">
+            <Image
+              src="/images/contact-directors.jpg"
+              alt="Elko directors Elias Nader and Marko Bratkovic"
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover object-bottom"
+            />
+            <figcaption className="absolute bottom-3 left-3 rounded-sm bg-background/95 px-3 py-1.5 text-sm font-semibold">
+              Elias &amp; Marko, Directors
+            </figcaption>
+          </figure>
           <div className="flex flex-col gap-3">
             <h2 className="text-sm font-bold uppercase tracking-widest">Phone</h2>
             {contact.phones.map((p) => (
