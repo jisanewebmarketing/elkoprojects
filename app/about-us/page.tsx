@@ -15,7 +15,7 @@ import { mission, values } from '@/content/company'
 export const metadata: Metadata = {
   title: 'About us',
   description:
-    'Elko Projects is a privately owned, director-led construction company in Greater Sydney. Meet Elias Nader and Marko Bratkovic, and how they protect every client.',
+    'Elko Projects is a privately owned, director-led construction company in Greater Sydney. Meet the directors and how they protect every client.',
   alternates: { canonical: '/about-us' },
   openGraph: {
     title: 'About us | Elko Projects',

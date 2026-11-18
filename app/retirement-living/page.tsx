@@ -8,13 +8,16 @@ import { JsonLd } from '@/components/json-ld'
 import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { retirementLiving } from '@/content/retirement-living'
 
+const META_DESCRIPTION =
+  'Retirement living and aged care renovations and refurbishments across Sydney — occupied-site works, staged and low-disruption, delivered by a director.'
+
 export const metadata: Metadata = {
-  title: 'Retirement Living Renovations & Refurbishments Sydney',
-  description: retirementLiving.intro,
+  title: 'Retirement Living Renovations Sydney',
+  description: META_DESCRIPTION,
   alternates: { canonical: '/retirement-living' },
   openGraph: {
     title: 'Retirement Living Renovations & Refurbishments Sydney | Elko Projects',
-    description: retirementLiving.intro,
+    description: META_DESCRIPTION,
     url: '/retirement-living',
     images: [retirementLiving.image],
   },

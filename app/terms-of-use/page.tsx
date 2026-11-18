@@ -11,7 +11,7 @@ import { contact } from '@/content/company'
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
-    'The terms that govern your use of the Elko Projects website, including intellectual property, the status of indicative information, and limitations of liability under NSW law.',
+    'The terms that govern your use of the Elko Projects website — intellectual property, the status of indicative information, and liability limits under NSW law.',
   alternates: { canonical: '/terms-of-use' },
   openGraph: {
     title: 'Terms of Use | Elko Projects',
