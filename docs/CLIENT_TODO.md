@@ -33,10 +33,15 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 - [ ] Team / group photos — client to share; a team section can be added once
       they arrive.
 - [ ] Team shots, branded-shirt photos, project photos and videos.
-  - [x] Two client site reels added (Randwick, Bronte) — shown in the vertical
-        "Straight from our sites" / "On site, in motion" sections on the homepage
-        and `/projects`. Web-compressed copies live in `/public/videos`; the
-        ~20 MB originals were not committed. More reels can be added in
+  - [x] Six client reels now run in the vertical "Straight from our sites" /
+        "On site, in motion" sections (home + `/projects`): the Randwick
+        before/after, Randwick and Bronte reveals, plus three on-site clips from
+        the Dropbox "Reels" folder (a doorway strip-out, a Five Dock kitchen
+        set-out, and "a day on site"). Web-compressed into `/public/videos`.
+        NOTE: most of the 53 clips in that folder are social/talking-head content
+        (which looks odd muted-autoplaying), so only the clean visual on-site
+        ones were used — a couple still carry light burned-in captions
+        ("Read caption ↓" etc.) from the originals. More can be added in
         `content/reels.ts`.
 - [x] **Dural "High-End Home Renovation"** — real photos added (hero + 9-image
       gallery) from the client's "ELKO 11.6.25" Dropbox folder, a bushland
