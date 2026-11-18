@@ -132,7 +132,7 @@ export const projects: Project[] = [
     region: 'Inner West',
     category: 'Retirement living',
     type: 'Retirement Living',
-    scope: 'Retirement living — scope to be confirmed', // TODO(client): scope + photos
+    scope: 'Retirement living unit refurbishment — current project', // TODO(client): confirm detailed scope + photos
     image: '/images/five-dock-units.jpg',
     status: 'Current',
     featured: true,
