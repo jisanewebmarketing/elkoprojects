@@ -44,9 +44,11 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
       the folder was undated per-project, so the assignment is an inference; it's
       a one-line change in `content/projects.ts` if it belongs to another job.
       (Curated 10 of 156; the rest weren't committed.)
+- [x] **The Osborne Display Suite** (Lane Cove) — real photos added (hero +
+      9-image gallery) from the client's "ELKO 28.11.25" Dropbox folder (display
+      kitchen, building model, show bathrooms). Curated 10 of 142.
 - [ ] Project photos for: Willoughby, Ingleburn, Surry Hills (remedial), Potts
       Point apartment, Monsignor John Peoples Units. Currently placeholder images.
-      (A second Dropbox folder, "ELKO 28.11.25", is still to be processed.)
 - [ ] Scope-of-works note per chosen photo for each project (for the Phase 11
       `/projects/[slug]` detail template `{ image, caption, scope }` array).
 
