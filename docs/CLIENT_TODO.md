@@ -38,8 +38,15 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
         and `/projects`. Web-compressed copies live in `/public/videos`; the
         ~20 MB originals were not committed. More reels can be added in
         `content/reels.ts`.
+- [x] **Dural "High-End Home Renovation"** — real photos added (hero + 9-image
+      gallery) from the client's "ELKO 11.6.25" Dropbox folder, a bushland
+      high-end home reno. **Please confirm this shoot is the Dural project** —
+      the folder was undated per-project, so the assignment is an inference; it's
+      a one-line change in `content/projects.ts` if it belongs to another job.
+      (Curated 10 of 156; the rest weren't committed.)
 - [ ] Project photos for: Willoughby, Ingleburn, Surry Hills (remedial), Potts
       Point apartment, Monsignor John Peoples Units. Currently placeholder images.
+      (A second Dropbox folder, "ELKO 28.11.25", is still to be processed.)
 - [ ] Scope-of-works note per chosen photo for each project (for the Phase 11
       `/projects/[slug]` detail template `{ image, caption, scope }` array).
 
