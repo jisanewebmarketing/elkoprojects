@@ -30,6 +30,11 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 - [ ] Director headshots (Elias Nader, Marko Bratkovic) — professional photos
       coming. Placeholders used in `components/directors-section.tsx` / About.
 - [ ] Team shots, branded-shirt photos, project photos and videos.
+  - [x] Two client site reels added (Randwick, Bronte) — shown in the vertical
+        "Straight from our sites" / "On site, in motion" sections on the homepage
+        and `/projects`. Web-compressed copies live in `/public/videos`; the
+        ~20 MB originals were not committed. More reels can be added in
+        `content/reels.ts`.
 - [ ] Project photos for: Willoughby, Ingleburn, Surry Hills (remedial), Potts
       Point apartment, Monsignor John Peoples Units. Currently placeholder images.
 - [ ] Scope-of-works note per chosen photo for each project (for the Phase 11
