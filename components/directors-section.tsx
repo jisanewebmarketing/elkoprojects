@@ -14,16 +14,16 @@ export function DirectorsSection() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-md lg:aspect-auto">
+        <div className="relative aspect-[4/5] self-start overflow-hidden rounded-md">
           <Image
-            src="/images/on-site-directors.jpg"
-            alt="Elko directors reviewing drawings on site beside new timber framing"
+            src="/images/directors-together.jpg"
+            alt="Elko Projects directors Elias Nader and Marko Bratkovic"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
           <p className="absolute bottom-4 left-4 rounded-sm bg-background px-3 py-2 text-sm font-semibold">
-            On site, every week
+            The directors you&rsquo;ll meet
           </p>
         </div>
 
