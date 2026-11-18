@@ -61,6 +61,15 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 
 - [ ] Director approval of all **Insights FAQs** (Phase 10, each flagged
       `reviewed: false` until approved).
+- [ ] **Verify figures in the published service FAQs** (`content/faqs.ts`) before
+      go-live: the building-inspection price ("from **$600 + GST**") and the
+      stated timeframes (one-bedroom unit turnover in **5–6 weeks**, commercial
+      refurbishment in a **~5-week staged period**). These come from the client's
+      FAQ document; confirm they are current.
+- [ ] Optional SEO enhancement (client doc's implementation notes): add inline
+      internal links inside FAQ answers (e.g. "balcony remediation" →
+      `/remedial/balcony-works`, "free site visit" → `/book-a-consultation`).
+      Deferred — answers currently render as plain text.
 
 ---
 

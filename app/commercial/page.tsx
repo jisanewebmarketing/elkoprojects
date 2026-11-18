@@ -5,10 +5,14 @@ import { PageHero } from '@/components/page-hero'
 import { ProgrammeCertainty } from '@/components/programme-certainty'
 import { CredentialsStrip } from '@/components/credentials-strip'
 import { RelatedProjects } from '@/components/related-projects'
+import { FaqList } from '@/components/faq-list'
 import { CtaBand } from '@/components/cta-band'
 import { JsonLd } from '@/components/json-ld'
-import { breadcrumbSchema, serviceSchema } from '@/lib/seo'
+import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { commercialHub, commercialPages } from '@/content/commercial'
+import { getFaqs } from '@/content/faqs'
+
+const faqs = getFaqs('commercial')
 
 export const metadata: Metadata = {
   title: 'Commercial Fit Out & Construction Sydney',
@@ -31,6 +35,7 @@ export default function CommercialHubPage() {
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: 'Commercial', description: commercialHub.intro, url: '/commercial' }),
+          faqSchema(faqs),
         ]}
       />
 
@@ -68,6 +73,7 @@ export default function CommercialHubPage() {
       <RelatedProjects category="Commercial" />
       <ProgrammeCertainty />
       <CredentialsStrip className="py-10" />
+      <FaqList faqs={faqs} />
       <CtaBand image={commercialHub.image} />
     </>
   )

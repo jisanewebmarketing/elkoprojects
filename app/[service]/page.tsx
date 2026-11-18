@@ -12,6 +12,7 @@ import { CredentialsStrip } from '@/components/credentials-strip'
 import { JsonLd } from '@/components/json-ld'
 import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { getService, services } from '@/lib/site-data'
+import { getFaqs } from '@/content/faqs'
 
 export const dynamicParams = false
 
@@ -49,6 +50,9 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
   if (!s) notFound()
 
   const crumbs = [{ label: s.title, href: `/${s.slug}` }]
+  // Prefer the client-approved FAQ set where one exists for this page.
+  const clientFaqs = getFaqs(s.slug)
+  const faqs = clientFaqs.length ? clientFaqs : s.faqs
 
   return (
     <>
@@ -56,7 +60,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: s.title, description: s.intro, url: `/${s.slug}` }),
-          ...(s.faqs.length ? [faqSchema(s.faqs)] : []),
+          ...(faqs.length ? [faqSchema(faqs)] : []),
         ]}
       />
       <PageHero eyebrow={s.short} title={s.title} intro={s.intro} image={s.image} crumbs={crumbs} />
@@ -110,7 +114,7 @@ export default async function ServicePage({ params }: { params: Promise<{ servic
       {categoryFor[s.slug] && <RelatedProjects category={categoryFor[s.slug]} />}
 
       <CredentialsStrip className="py-8" />
-      <FaqList faqs={s.faqs} />
+      <FaqList faqs={faqs} />
       <CtaBand image={s.image} />
     </>
   )

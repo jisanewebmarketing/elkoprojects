@@ -4,10 +4,14 @@ import { ArrowUpRight } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
 import { CredentialsStrip } from '@/components/credentials-strip'
 import { RelatedProjects } from '@/components/related-projects'
+import { FaqList } from '@/components/faq-list'
 import { CtaBand } from '@/components/cta-band'
 import { JsonLd } from '@/components/json-ld'
-import { breadcrumbSchema, serviceSchema } from '@/lib/seo'
+import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { remedialHub, remedialPages } from '@/content/remedial'
+import { getFaqs } from '@/content/faqs'
+
+const faqs = getFaqs('remedial')
 
 export const metadata: Metadata = {
   title: 'Remedial & Strata Builder Sydney',
@@ -30,6 +34,7 @@ export default function RemedialHubPage() {
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: 'Remedial & Strata', description: remedialHub.intro, url: '/remedial' }),
+          faqSchema(faqs),
         ]}
       />
 
@@ -66,6 +71,7 @@ export default function RemedialHubPage() {
 
       <RelatedProjects category="Remedial" />
       <CredentialsStrip className="py-8" />
+      <FaqList faqs={faqs} />
       <CtaBand image={remedialHub.image} />
     </>
   )

@@ -10,6 +10,7 @@ import { CtaBand } from '@/components/cta-band'
 import { JsonLd } from '@/components/json-ld'
 import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { commercialPages, getCommercialPage } from '@/content/commercial'
+import { getFaqs } from '@/content/faqs'
 
 export const dynamicParams = false
 
@@ -39,6 +40,7 @@ export default async function CommercialSubPage({ params }: { params: Promise<{ 
     { label: 'Commercial', href: '/commercial' },
     { label: page.h1, href: `/commercial/${page.slug}` },
   ]
+  const faqs = getFaqs(`commercial/${page.slug}`)
 
   return (
     <>
@@ -46,7 +48,7 @@ export default async function CommercialSubPage({ params }: { params: Promise<{ 
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: page.h1, description: page.intro, url: `/commercial/${page.slug}` }),
-          ...(page.faqs.length ? [faqSchema(page.faqs)] : []),
+          ...(faqs.length ? [faqSchema(faqs)] : []),
         ]}
       />
 
@@ -67,7 +69,7 @@ export default async function CommercialSubPage({ params }: { params: Promise<{ 
       <ProjectShowcase slugs={page.projectSlugs} />
       <ProgrammeCertainty />
       <CredentialsStrip className="py-10" />
-      <FaqList faqs={page.faqs} />
+      {faqs.length > 0 && <FaqList faqs={faqs} />}
       <CtaBand image={page.image} />
     </>
   )

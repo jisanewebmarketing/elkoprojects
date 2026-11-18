@@ -11,6 +11,7 @@ import { JsonLd } from '@/components/json-ld'
 import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { remedialPages, getRemedialPage } from '@/content/remedial'
 import { getProject } from '@/content/projects'
+import { getFaqs } from '@/content/faqs'
 
 export const dynamicParams = false
 
@@ -41,6 +42,7 @@ export default async function RemedialSubPage({ params }: { params: Promise<{ sl
     { label: page.h1, href: `/remedial/${page.slug}` },
   ]
   const projects = page.projectSlugs.map(getProject).filter((p) => p !== undefined)
+  const faqs = getFaqs(`remedial/${page.slug}`)
 
   return (
     <>
@@ -48,7 +50,7 @@ export default async function RemedialSubPage({ params }: { params: Promise<{ sl
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: page.h1, description: page.intro, url: `/remedial/${page.slug}` }),
-          ...(page.faqs.length ? [faqSchema(page.faqs)] : []),
+          ...(faqs.length ? [faqSchema(faqs)] : []),
         ]}
       />
 
@@ -130,7 +132,7 @@ export default async function RemedialSubPage({ params }: { params: Promise<{ sl
       )}
 
       <CredentialsStrip className="py-10" />
-      <FaqList faqs={page.faqs} />
+      {faqs.length > 0 && <FaqList faqs={faqs} />}
       <CtaBand image={page.image} />
     </>
   )

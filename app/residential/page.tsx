@@ -5,10 +5,14 @@ import { PageHero } from '@/components/page-hero'
 import { HowWeProtectYou } from '@/components/how-we-protect-you'
 import { CredentialsStrip } from '@/components/credentials-strip'
 import { RelatedProjects } from '@/components/related-projects'
+import { FaqList } from '@/components/faq-list'
 import { CtaBand } from '@/components/cta-band'
 import { JsonLd } from '@/components/json-ld'
-import { breadcrumbSchema, serviceSchema } from '@/lib/seo'
+import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { residentialHub, residentialPages } from '@/content/residential'
+import { getFaqs } from '@/content/faqs'
+
+const faqs = getFaqs('residential')
 
 export const metadata: Metadata = {
   title: 'Residential Builder & Renovations Sydney',
@@ -31,6 +35,7 @@ export default function ResidentialHubPage() {
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: 'Residential', description: residentialHub.intro, url: '/residential' }),
+          faqSchema(faqs),
         ]}
       />
 
@@ -68,6 +73,7 @@ export default function ResidentialHubPage() {
       <RelatedProjects category="Residential" />
       <HowWeProtectYou />
       <CredentialsStrip className="py-10" />
+      <FaqList faqs={faqs} />
       <CtaBand image={residentialHub.image} />
     </>
   )
