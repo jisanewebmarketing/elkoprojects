@@ -27,8 +27,11 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 
 ## Photography & media
 
-- [ ] Director headshots (Elias Nader, Marko Bratkovic) — professional photos
-      coming. Placeholders used in `components/directors-section.tsx` / About.
+- [x] Director headshots (Elias Nader, Marko Bratkovic) — supplied and live in
+      the directors section (home + About) and the hero "Director sign-off"
+      badge, replacing the initials placeholders.
+- [ ] Team / group photos — client to share; a team section can be added once
+      they arrive.
 - [ ] Team shots, branded-shirt photos, project photos and videos.
   - [x] Two client site reels added (Randwick, Bronte) — shown in the vertical
         "Straight from our sites" / "On site, in motion" sections on the homepage

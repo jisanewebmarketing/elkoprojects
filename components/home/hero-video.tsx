@@ -1,9 +1,10 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { ArrowRight, Pause, Play } from 'lucide-react'
-import { combinedExperienceLine } from '@/content/company'
+import { combinedExperienceLine, directors } from '@/content/company'
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -82,8 +83,22 @@ export function HeroVideo() {
             </p>
             <div className="mt-4 flex items-center gap-3 border-t border-border pt-4">
               <div className="flex -space-x-2">
-                <span className="flex size-10 items-center justify-center rounded-full border-2 border-background bg-ink font-display text-sm font-bold text-ink-foreground">EN</span>
-                <span className="flex size-10 items-center justify-center rounded-full border-2 border-background bg-primary font-display text-sm font-bold text-primary-foreground">MB</span>
+                {directors.map((d) =>
+                  d.headshot ? (
+                    <Image
+                      key={d.name}
+                      src={d.headshot}
+                      alt={d.name}
+                      width={40}
+                      height={40}
+                      className="size-10 rounded-full border-2 border-background object-cover object-top"
+                    />
+                  ) : (
+                    <span key={d.name} className="flex size-10 items-center justify-center rounded-full border-2 border-background bg-ink font-display text-sm font-bold text-ink-foreground">
+                      {d.initials}
+                    </span>
+                  ),
+                )}
               </div>
               <p className="text-sm leading-tight">
                 <span className="block font-semibold">Elias Nader & Marko Bratkovic</span>

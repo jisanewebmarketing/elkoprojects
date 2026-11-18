@@ -36,11 +36,28 @@ export function DirectorsSection() {
 
           <ul className="grid gap-4 sm:grid-cols-2">
             {directors.map((d) => (
-              <li key={d.name} className="flex flex-col gap-2 rounded-md border border-border bg-card p-5">
-                <p className="text-xs font-semibold uppercase tracking-widest text-primary">{d.role}</p>
-                <h3 className="text-xl font-extrabold">{d.name}</h3>
-                <p className="text-xs text-muted-foreground">{d.quals}</p>
-                <p className="text-sm leading-relaxed">{d.focus}</p>
+              <li key={d.name} className="flex flex-col overflow-hidden rounded-md border border-border bg-card">
+                <div className="relative aspect-[4/5] bg-secondary">
+                  {d.headshot ? (
+                    <Image
+                      src={d.headshot}
+                      alt={`${d.name}, ${d.role}`}
+                      fill
+                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover object-top"
+                    />
+                  ) : (
+                    <span className="flex size-full items-center justify-center font-display text-4xl font-bold text-muted-foreground">
+                      {d.initials}
+                    </span>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2 p-5">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-primary">{d.role}</p>
+                  <h3 className="text-xl font-extrabold">{d.name}</h3>
+                  <p className="text-xs text-muted-foreground">{d.quals}</p>
+                  <p className="text-sm leading-relaxed">{d.focus}</p>
+                </div>
               </li>
             ))}
           </ul>
