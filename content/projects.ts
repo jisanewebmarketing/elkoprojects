@@ -33,8 +33,17 @@ export type Project = {
   status?: string
   year?: string
   featured?: boolean
-  /** Full case-study copy, where the client has supplied it. */
+  /** Full case-study copy / overview, where the client has supplied it. */
   caseStudy?: string
+  /** Optional detail-page extras (client will supply over time). */
+  outcome?: string
+  quote?: { text: string; by: string }
+  /** Extra hero-gallery images beyond the main image. */
+  gallery?: string[]
+  /** Scope of works per photo (Kongstruction-style), client-written. */
+  scopePhotos?: { image: string; caption: string; scope: string }[]
+  /** Scope tags shown in the facts panel. */
+  tags?: string[]
 }
 
 export const projects: Project[] = [

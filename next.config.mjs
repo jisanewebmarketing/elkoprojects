@@ -11,6 +11,8 @@ const nextConfig = {
       // Residential slugs renamed in Phase 3.
       { source: '/residential/complete-renovations', destination: '/residential/complete-house-renovations', permanent: true },
       { source: '/residential/new-home-builds', destination: '/residential/custom-home-new-builds', permanent: true },
+      // Projects moved from /completed-projects to /projects in Phase 11.
+      { source: '/completed-projects', destination: '/projects', permanent: true },
     ]
   },
   async headers() {

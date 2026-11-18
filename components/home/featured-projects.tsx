@@ -15,7 +15,7 @@ export function FeaturedProjects() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <SectionHeading eyebrow="Featured projects" title="The work speaks first." />
-          <Link href="/completed-projects" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+          <Link href="/projects" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
             All completed projects <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>

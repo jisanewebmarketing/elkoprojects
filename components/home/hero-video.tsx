@@ -63,7 +63,7 @@ export function HeroVideo() {
                 Book a free site visit &amp; quote <ArrowRight className="size-4" aria-hidden />
               </Link>
               <Link
-                href="/completed-projects"
+                href="/projects"
                 className="inline-flex items-center gap-2 rounded-sm border border-ink-foreground/60 px-6 py-3.5 font-semibold backdrop-blur-sm transition-colors hover:bg-ink-foreground hover:text-ink"
               >
                 View our projects
