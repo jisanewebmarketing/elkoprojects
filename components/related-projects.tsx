@@ -12,7 +12,7 @@ export function RelatedProjects({ category }: { category: string }) {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <h2 className="text-3xl font-extrabold md:text-4xl">{`Featured ${category.toLowerCase()} projects`}</h2>
-          <Link href="/completed-projects" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+          <Link href="/projects" className="inline-flex items-center gap-2 font-semibold text-primary hover:underline">
             See all projects <ArrowRight className="size-4" aria-hidden />
           </Link>
         </div>

@@ -3,8 +3,7 @@
 // top bar stays uncluttered on desktop. Each link carries a one-line description
 // (shown in the desktop panel and the mobile drawer) and an optional icon.
 //
-// NOTE: "Projects" points at /completed-projects for now; Phase 11 introduces
-// /projects (grid + /projects/[slug]) and this href moves across then.
+// "Projects" points at /projects (grid + /projects/[slug], Phase 11).
 
 export type NavLink = { label: string; href: string; description: string; icon?: string }
 export type NavItem = {
@@ -41,7 +40,7 @@ export const mainNav: NavItem[] = [
   },
   {
     label: 'Projects',
-    href: '/completed-projects',
+    href: '/projects',
     description: 'Completed homes, workplaces and buildings across Sydney.',
   },
   {

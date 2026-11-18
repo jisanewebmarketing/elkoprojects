@@ -1,6 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowUpRight } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import type { Project, ProjectCategory } from '@/lib/site-data'
@@ -34,8 +36,8 @@ export function ProjectGallery({ projects }: { projects: Project[] }) {
 
       <ul className="mt-10 grid gap-x-4 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((p) => (
-          <li key={p.title}>
-            <figure className="group flex flex-col gap-3">
+          <li key={p.slug}>
+            <Link href={`/projects/${p.slug}`} className="group flex flex-col gap-3">
               <div className="relative aspect-[4/5] overflow-hidden rounded-md">
                 <Image
                   src={p.image || '/placeholder.svg'}
@@ -48,13 +50,16 @@ export function ProjectGallery({ projects }: { projects: Project[] }) {
                   <span className="absolute left-3 top-3 rounded-sm bg-background px-2 py-1 text-xs font-semibold">{p.status}</span>
                 )}
               </div>
-              <figcaption className="flex flex-col gap-1">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">{p.category} · {p.region}</p>
-                <p className="font-display text-xl font-bold">{p.title}, {p.location}</p>
-                <p className="text-sm text-muted-foreground">{p.scope}</p>
-                <p className="mt-1 text-xs font-medium text-primary">Overseen by E. Nader & M. Bratkovic</p>
-              </figcaption>
-            </figure>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex flex-col gap-1">
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">{p.category} · {p.region}</p>
+                  <p className="font-display text-xl font-bold">{p.title}, {p.location}</p>
+                  <p className="text-sm text-muted-foreground">{p.scope}</p>
+                  <p className="mt-1 text-xs font-medium text-primary">Overseen by E. Nader &amp; M. Bratkovic</p>
+                </div>
+                <ArrowUpRight className="mt-1 size-5 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
+              </div>
+            </Link>
           </li>
         ))}
       </ul>

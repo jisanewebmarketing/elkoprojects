@@ -3,6 +3,7 @@ import { services } from '@/content/services'
 import { residentialPages } from '@/content/residential'
 import { commercialPages } from '@/content/commercial'
 import { remedialPages } from '@/content/remedial'
+import { projects } from '@/content/projects'
 import { absoluteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/safety',
     '/contact-us',
     '/book-a-consultation',
-    '/completed-projects',
+    '/projects',
     '/display-units',
     '/insights',
     '/privacy-policy',
@@ -32,7 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...remedialPages.map((p) => `/remedial/${p.slug}`),
   ]
 
-  return [...staticPaths, ...hubPaths, ...subPaths].map((path) => ({
+  const projectPaths = projects.map((p) => `/projects/${p.slug}`)
+
+  return [...staticPaths, ...hubPaths, ...subPaths, ...projectPaths].map((path) => ({
     url: absoluteUrl(path),
     lastModified: now,
     changeFrequency: 'monthly',
