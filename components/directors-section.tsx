@@ -13,66 +13,51 @@ const commitments = [
 export function DirectorsSection() {
   return (
     <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="relative aspect-[4/5] self-start overflow-hidden rounded-md">
-          <Image
-            src="/images/directors-together.jpg"
-            alt="Elko Projects directors Elias Nader and Marko Bratkovic"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-center"
-          />
-          <p className="absolute bottom-4 left-4 rounded-sm bg-background px-3 py-2 text-sm font-semibold">
-            The directors you&rsquo;ll meet
-          </p>
-        </div>
+      <div className="flex flex-col gap-12">
+        <SectionHeading
+          eyebrow="Overseen by the Directors"
+          title="Two directors. One standard."
+          body="Elias and Marko co-founded Elko in 2022 after a decade each across residential, commercial and government construction. Elko is small enough that both directors are personally involved in every build, and structured enough to deliver to the standard Sydney's best clients expect."
+        />
 
-        <div className="flex flex-col gap-10">
-          <SectionHeading
-            eyebrow="Overseen by the Directors"
-            title="Two directors. One standard."
-            body="Elias and Marko co-founded Elko in 2022 after a decade each across residential, commercial and government construction. Elko is small enough that both directors are personally involved in every build, and structured enough to deliver to the standard Sydney's best clients expect."
-          />
+        <ul className="grid gap-6 lg:grid-cols-2">
+          {directors.map((d) => (
+            <li key={d.name} className="grid overflow-hidden rounded-md border border-border bg-card sm:grid-cols-[240px_1fr]">
+              <div className="relative aspect-[4/5] bg-secondary sm:aspect-auto">
+                {d.headshot ? (
+                  <Image
+                    src={d.headshot}
+                    alt={`${d.name}, ${d.role}`}
+                    fill
+                    sizes="(min-width: 640px) 240px, 100vw"
+                    className="object-cover object-top"
+                  />
+                ) : (
+                  <span className="flex size-full items-center justify-center font-display text-4xl font-bold text-muted-foreground">
+                    {d.initials}
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-col gap-2 p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-primary">{d.role}</p>
+                <h3 className="text-2xl font-extrabold">{d.name}</h3>
+                <p className="text-xs text-muted-foreground">{d.quals}</p>
+                <p className="mt-1 text-sm leading-relaxed">{d.focus}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
 
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {directors.map((d) => (
-              <li key={d.name} className="flex flex-col overflow-hidden rounded-md border border-border bg-card">
-                <div className="relative aspect-[4/5] bg-secondary">
-                  {d.headshot ? (
-                    <Image
-                      src={d.headshot}
-                      alt={`${d.name}, ${d.role}`}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 45vw, 90vw"
-                      className="object-cover object-top"
-                    />
-                  ) : (
-                    <span className="flex size-full items-center justify-center font-display text-4xl font-bold text-muted-foreground">
-                      {d.initials}
-                    </span>
-                  )}
-                </div>
-                <div className="flex flex-col gap-2 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-widest text-primary">{d.role}</p>
-                  <h3 className="text-xl font-extrabold">{d.name}</h3>
-                  <p className="text-xs text-muted-foreground">{d.quals}</p>
-                  <p className="text-sm leading-relaxed">{d.focus}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <ul className="flex flex-col gap-3">
-            {commitments.map((c) => (
-              <li key={c} className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
-                  <Check className="size-3.5" aria-hidden />
-                </span>
-                <span className="leading-relaxed">{c}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {commitments.map((c) => (
+            <li key={c} className="flex items-start gap-3">
+              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                <Check className="size-3.5" aria-hidden />
+              </span>
+              <span className="leading-relaxed">{c}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
