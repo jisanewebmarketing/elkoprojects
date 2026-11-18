@@ -82,8 +82,27 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 
 ---
 
+## Book a consultation form & legal (Phases 13 / 15)
+
+- [ ] **Terms of Use** (`/terms-of-use`) is a drafted starting point and must be
+      reviewed by Elko's lawyer before go-live (it carries a visible "Draft for
+      review" banner). It governs website use only — not the building contract.
+- [ ] **Confirm the enquiry destination inbox.** Submissions from
+      `/book-a-consultation` email to `CONTACT_EMAIL` (defaults to
+      `admin@elkoprojects.com.au`). Confirm the address and the From address.
+- [ ] Decide whether the enquirer confirmation email copy is acceptable
+      (`app/book-a-consultation/actions.ts`).
+
 ## Build / environment notes (for developers)
 
+- **Consultation form email (Resend).** `/book-a-consultation` posts to a server
+  action (`app/book-a-consultation/actions.ts`) that emails the office and the
+  enquirer via the Resend REST API. Set `RESEND_API_KEY` (and a verified sending
+  domain) in production, plus optional `CONTACT_EMAIL` / `CONTACT_FROM_EMAIL` —
+  see `.env.example`. Without the key the form still returns success but sends no
+  email (safe for staging; it `console.warn`s). Protections: honeypot field,
+  per-IP in-memory rate limit, attachment allow-list (PDF/JPG/PNG, ≤5, ≤10 MB).
+  The old invented-rate "cost estimator" was removed (ground rule #2).
 - `NEXT_PUBLIC_SHOW_UNCONFIRMED_STATS` — set to `true` on staging to show the
   unconfirmed headline stats and the turnover slot; leave unset/`false` on
   production until the client signs the numbers off. See `.env.example`.
