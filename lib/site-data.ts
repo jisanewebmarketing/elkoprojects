@@ -35,11 +35,12 @@ export type { Project, ProjectCategory, ProjectType } from '@/content/projects'
 export { mainNav, footerLegal, serviceLines, aboutLinks } from '@/content/navigation'
 export type { NavItem, NavLink } from '@/content/navigation'
 
-// Homepage "how we deliver" steps. Spec Phase 8 revises these labels to
-// Consultation / Design / Construct / Handover and relocates them.
+// "How we deliver" stages (spec Phase 8): Consultation, Design, Construct,
+// Handover. Shown on the homepage and About; the full /our-process page carries
+// the longer descriptions.
 export const process = [
-  { title: 'Analyse & qualify', body: 'We meet on site to understand scope, budget and timeline, and qualify the project before committing.' },
-  { title: 'Design & budget', body: 'Our consultants, engineers and architects produce a design within a realistic, documented budget.' },
-  { title: 'Review & approve', body: 'We review for buildability, cost and programme. Nothing starts without your sign-off.' },
-  { title: 'Build & hand over', body: 'Weekly reporting, director-led site control and a defect walk with both directors before completion.' },
+  { title: 'Consultation', body: 'We determine scope, requirements and expectations, and qualify the project before committing.' },
+  { title: 'Design', body: 'We work with architects, engineers and consultants to a design that is achievable within budget, catching buildability issues early.' },
+  { title: 'Construct', body: 'Meticulous site management, weekly client reporting, documented variations and early procurement.' },
+  { title: 'Handover', body: 'Defect walks with a director, complete handover documentation and client satisfaction.' },
 ]
