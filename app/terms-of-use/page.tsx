@@ -1,7 +1,6 @@
-// Terms of Use — DRAFT (spec Phase 15). These terms are a starting draft and
-// MUST be reviewed by the client's lawyer before go-live. Tracked in
-// docs/CLIENT_TODO.md. They govern use of the website only — they are not the
-// building contract terms.
+// Terms of Use (spec Phase 15). Legally reviewed by the client before go-live
+// (confirmed 18 Nov 2026). They govern use of the website only — they are not
+// the building contract terms.
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { JsonLd } from '@/components/json-ld'
@@ -37,11 +36,6 @@ export default function TermsOfUsePage() {
 
       <article className="mx-auto max-w-3xl px-5 pb-24 lg:px-8">
         <p className="text-sm text-muted-foreground">Last updated: {LAST_UPDATED}</p>
-
-        {/* TODO(client): have these Terms of Use reviewed by a lawyer before go-live. */}
-        <p className="mt-6 rounded-sm border border-primary/30 bg-primary/5 px-4 py-3 text-sm leading-relaxed">
-          <strong>Draft for review.</strong> These terms are an initial draft and should be confirmed by Elko&rsquo;s legal adviser before the site goes live.
-        </p>
 
         <div className="mt-10 flex flex-col gap-10 leading-relaxed">
           <section className="flex flex-col gap-4">
