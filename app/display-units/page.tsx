@@ -5,9 +5,13 @@ import { PageHero } from '@/components/page-hero'
 import { ProjectShowcase } from '@/components/project-showcase'
 import { ProgrammeCertainty } from '@/components/programme-certainty'
 import { CredentialsStrip } from '@/components/credentials-strip'
+import { FaqList } from '@/components/faq-list'
 import { JsonLd } from '@/components/json-ld'
-import { breadcrumbSchema, serviceSchema } from '@/lib/seo'
+import { breadcrumbSchema, serviceSchema, faqSchema } from '@/lib/seo'
 import { contact } from '@/content/company'
+import { getFaqs } from '@/content/faqs'
+
+const faqs = getFaqs('display-units')
 
 const intro =
   'Display suite fit outs for unit and house developments. We build the display your sales campaign depends on — a finish that sells the development and a programme that hits your launch date.'
@@ -43,6 +47,7 @@ export default function DisplayUnitsPage() {
         data={[
           breadcrumbSchema(crumbs),
           serviceSchema({ name: 'Display Units', description: intro, url: '/display-units' }),
+          faqSchema(faqs),
         ]}
       />
 
@@ -68,6 +73,7 @@ export default function DisplayUnitsPage() {
 
       <ProjectShowcase slugs={['the-osborne-lane-cove']} />
       <ProgrammeCertainty />
+      <FaqList faqs={faqs} />
 
       {/* Developer-focused CTA */}
       <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
