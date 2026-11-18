@@ -35,4 +35,25 @@ export const reels: Reel[] = [
     title: 'Coastal home renovation',
     blurb: 'From a pass over the coast to the finished interiors and tiled bathrooms, near Bronte beach.',
   },
+  {
+    src: '/videos/demolition.mp4',
+    poster: '/videos/demolition.jpg',
+    location: 'On site',
+    title: 'Stripping back',
+    blurb: 'Opening up a doorway — the structural graft behind every renovation.',
+  },
+  {
+    src: '/videos/five-dock-kitchen.mp4',
+    poster: '/videos/five-dock-kitchen.jpg',
+    location: 'Five Dock',
+    title: 'Kitchen takes shape',
+    blurb: 'Setting out a new kitchen on a Five Dock renovation.',
+  },
+  {
+    src: '/videos/a-day-on-site.mp4',
+    poster: '/videos/a-day-on-site.jpg',
+    location: 'On site',
+    title: 'A day on site',
+    blurb: 'A look at how much goes into a single day on a live build.',
+  },
 ]
