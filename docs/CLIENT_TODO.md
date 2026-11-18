@@ -54,8 +54,17 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 
 ## Legal
 
-- [ ] Legal review of the **Privacy Policy** and **Terms of Use** before go-live
-      (both carry a "Draft — client to have legal review before go-live" banner).
+- [ ] Legal review of the **Privacy Policy** (now published from client-supplied
+      copy at `/privacy-policy`) and the **Terms of Use** before go-live.
+- [ ] **Privacy Policy — confirm items** (carried as `TODO(client)` in
+      `app/privacy-policy/page.tsx`):
+  - [ ] Section 5 (overseas disclosure): list the countries for the service
+        providers Elko actually uses.
+  - [ ] Section 6 (advertising): remove any advertising tools (Google Ads / Meta)
+        not actually installed at launch.
+  - [ ] Section 7 (retention): confirm Elko's retention period.
+  - [ ] Confirm the office address shown (Level 1, Unit D, 19/21 Loyalty Rd,
+        North Rocks NSW 2151) and the "last updated" date.
 
 ## Approvals
 

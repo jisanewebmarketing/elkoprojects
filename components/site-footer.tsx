@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { contact, company, licensing } from '@/content/company'
 import { services } from '@/content/services'
@@ -36,6 +37,18 @@ export function SiteFooter() {
               <dd className="inline font-medium text-foreground">BUP4254517</dd>
             </div>
           </dl>
+
+          <div className="mt-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Proud members of</p>
+            <div className="mt-3 flex items-center gap-3">
+              <span className="flex h-12 items-center justify-center rounded-md bg-white px-2.5">
+                <Image src="/images/mba-member.jpg" alt="Master Builders Association member" width={200} height={93} className="h-8 w-auto" />
+              </span>
+              <span className="flex h-12 items-center justify-center rounded-md bg-white px-2.5">
+                <Image src="/images/hia-member.png" alt="HIA member" width={211} height={239} className="h-9 w-auto" />
+              </span>
+            </div>
+          </div>
         </div>
 
         <div>
