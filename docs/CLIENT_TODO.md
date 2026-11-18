@@ -61,8 +61,9 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 
 ## Legal
 
-- [ ] Legal review of the **Privacy Policy** (now published from client-supplied
-      copy at `/privacy-policy`) and the **Terms of Use** before go-live.
+- [x] Legal review of the **Privacy Policy** (`/privacy-policy`) and the
+      **Terms of Use** (`/terms-of-use`) — **reviewed 18 Nov 2026**. The visible
+      "Draft for review" banner on the Terms page has been removed.
 - [ ] **Privacy Policy — confirm items** (carried as `TODO(client)` in
       `app/privacy-policy/page.tsx`):
   - [ ] Section 5 (overseas disclosure): list the countries for the service

@@ -1,7 +1,8 @@
 // Privacy Policy — content supplied by the client (Elko Projects Privacy Policy
-// document). Draft — the client should have this legally reviewed before
-// go-live. Three "Confirm" items from the source are tracked as TODO(client)
-// and in docs/CLIENT_TODO.md.
+// document) and legally reviewed before go-live (confirmed 18 Nov 2026). A few
+// factual "Confirm" items from the source remain, tracked as TODO(client) here
+// and in docs/CLIENT_TODO.md (overseas-disclosure countries, advertising tools
+// in use, retention period, office address).
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { JsonLd } from '@/components/json-ld'
