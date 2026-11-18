@@ -119,7 +119,8 @@ export type Director = {
   quals: string
   focus: string
   initials: string
-  // TODO(client): professional headshot. Falls back to an initials badge.
+  // Professional headshot (supplied by the client). Falls back to an initials
+  // badge when absent.
   headshot?: string
 }
 
@@ -128,6 +129,7 @@ export const directors: Director[] = [
     name: 'Elias Nader',
     role: 'Co-Founder & Operations Director',
     initials: 'EN',
+    headshot: '/images/elias-nader.jpg',
     quals: 'B. Construction Management (Construction Economics) · M. Project Management (Construction), Western Sydney University · Licensed Builder · Building Practitioner · MBA member',
     focus:
       'Over 10 years across residential, commercial, industrial and government construction, including Sydney Metro and private aged care and retirement living. Leads pre-construction, budgets, proposals and cost control.',
@@ -136,6 +138,7 @@ export const directors: Director[] = [
     name: 'Marko Bratkovic',
     role: 'Co-Founder & Construction Director',
     initials: 'MB',
+    headshot: '/images/marko-bratkovic.jpg',
     quals: 'B. Construction Management',
     focus:
       'Over 10 years across residential, commercial and government construction, including data centres, private aged care and retirement living, and major retail fitouts (Erina Fair, Westfield). Leads live delivery, site operations, trade coordination, QA, defects and handover.',
