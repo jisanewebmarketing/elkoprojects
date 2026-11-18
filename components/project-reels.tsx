@@ -83,9 +83,16 @@ function ReelCard({ reel }: { reel: Reel }) {
         >
           {muted ? <VolumeX className="size-4" aria-hidden /> : <Volume2 className="size-4" aria-hidden />}
         </button>
-        <span className="absolute left-3 top-3 rounded-full bg-ink/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink-foreground backdrop-blur-sm">
-          {reel.location}
-        </span>
+        <div className="absolute left-3 top-3 flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-ink/70 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-ink-foreground backdrop-blur-sm">
+            {reel.location}
+          </span>
+          {reel.tag && (
+            <span className="rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
+              {reel.tag}
+            </span>
+          )}
+        </div>
       </div>
       <div className="flex flex-col gap-1 p-4">
         <h3 className="font-display text-lg font-bold">{reel.title}</h3>

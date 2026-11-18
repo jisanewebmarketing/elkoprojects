@@ -8,9 +8,19 @@ export type Reel = {
   location: string
   title: string
   blurb: string
+  /** Optional accent badge, e.g. 'Before & after'. */
+  tag?: string
 }
 
 export const reels: Reel[] = [
+  {
+    src: '/videos/before-after-reel.mp4',
+    poster: '/videos/before-after-reel.jpg',
+    location: 'Randwick',
+    title: 'Before & after',
+    blurb: 'From stripped-back structure to a finished home — a director walks the Randwick transformation.',
+    tag: 'Before & after',
+  },
   {
     src: '/videos/randwick-reel.mp4',
     poster: '/videos/randwick-reel.jpg',
