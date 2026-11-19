@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: 'About us | Elko Projects',
     description: 'Director-led construction across Greater Sydney — two directors, one standard.',
     url: '/about-us',
-    images: ['/images/on-site-directors.jpg'],
+    images: ['/images/about-hero.jpg'],
   },
 }
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
         eyebrow="About Elko Projects"
         title="A builder run by the people on your site."
         intro="Elko is a privately owned, director-led construction company built on a simple rule: the directors you meet are the directors who build your project."
-        image="/images/on-site-directors.jpg"
+        image="/images/about-hero.jpg"
         crumbs={crumbs}
       />
 
