@@ -36,7 +36,7 @@ export default function OurProcessPage() {
         eyebrow="How we deliver"
         title="Our Process"
         intro="A stage-gate process that protects your budget and programme, run by the directors from first meeting to final handover."
-        image="/images/on-site-directors.jpg"
+        image="/images/projects/osborne/hero.jpg"
         crumbs={[{ label: 'Our Process', href: '/our-process' }]}
       />
 
@@ -53,7 +53,7 @@ export default function OurProcessPage() {
       </section>
 
       <CredentialsStrip className="py-8" />
-      <CtaBand image="/images/on-site-directors.jpg" />
+      <CtaBand image="/images/projects/osborne/hero.jpg" />
     </>
   )
 }

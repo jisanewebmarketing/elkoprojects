@@ -73,55 +73,30 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         crumbs={crumbs}
       />
 
-      <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-12">
-          {/* Facts */}
-          <aside className="lg:col-span-4">
-            <div className="rounded-md border border-border bg-card p-6">
-              <h2 className="text-sm font-bold uppercase tracking-widest">Project facts</h2>
-              <dl className="mt-4 flex flex-col">
-                {facts.map((f) => (
-                  <div key={f.label} className="flex justify-between gap-4 border-b border-border py-3 last:border-0">
-                    <dt className="text-sm text-muted-foreground">{f.label}</dt>
-                    <dd className="text-right text-sm font-medium">{f.value}</dd>
-                  </div>
-                ))}
-              </dl>
-              {p.tags && p.tags.length > 0 && (
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <li key={t} className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">{t}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </aside>
-
-          {/* Overview */}
-          <div className="lg:col-span-8">
-            <h2 className="text-3xl font-extrabold md:text-4xl">Overview</h2>
-            {overview ? (
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">{overview}</p>
-            ) : (
-              <div className="mt-6 rounded-md border border-dashed border-border bg-card p-6">
-                <p className="leading-relaxed text-muted-foreground">
-                  Full case study coming soon. {/* TODO(client): overview, scope-of-works per photo, outcome and an optional quote. */}
-                </p>
+      {/* Project facts */}
+      <section className="mx-auto max-w-7xl px-5 pt-12 lg:px-8">
+        <div className="rounded-md border border-border bg-card p-6 sm:p-8">
+          <dl className="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+            {facts.map((f) => (
+              <div key={f.label} className="flex flex-col gap-1">
+                <dt className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">{f.label}</dt>
+                <dd className="font-medium">{f.value}</dd>
               </div>
-            )}
-            {p.outcome && (
-              <>
-                <h3 className="mt-10 text-xl font-bold">Outcome</h3>
-                <p className="mt-3 leading-relaxed text-muted-foreground">{p.outcome}</p>
-              </>
-            )}
-          </div>
+            ))}
+          </dl>
+          {p.tags && p.tags.length > 0 && (
+            <ul className="mt-6 flex flex-wrap gap-2 border-t border-border pt-6">
+              {p.tags.map((t) => (
+                <li key={t} className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">{t}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
       {/* Scope of works per photo (client-written) */}
       {p.scopePhotos && p.scopePhotos.length > 0 && (
-        <section className="mx-auto max-w-7xl px-5 pb-8 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 pb-8 pt-12 lg:px-8">
           <h2 className="text-3xl font-extrabold md:text-4xl">Scope of works</h2>
           <div className="mt-10 flex flex-col gap-12">
             {p.scopePhotos.map((sp, i) => (
@@ -141,7 +116,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
       {/* Extra gallery images */}
       {gallery.length > 1 && (
-        <section className="mx-auto max-w-7xl px-5 pb-8 lg:px-8">
+        <section className="mx-auto max-w-7xl px-5 pb-8 pt-12 lg:px-8">
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.slice(1).map((src) => (
               <li key={src} className="relative aspect-[4/3] overflow-hidden rounded-md">

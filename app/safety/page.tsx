@@ -20,7 +20,7 @@ export default function SafetyPage() {
         eyebrow="Safety first"
         title="Safety, managed proactively."
         intro="Every Elko project runs on a site-specific WHS management plan and Safe Work Method Statements, kept current as the works progress."
-        image="/images/on-site-directors.jpg"
+        image="/images/projects/dural/kitchen-island.jpg"
         crumbs={[{ label: 'Safety', href: '/safety' }]}
       />
 
@@ -47,7 +47,7 @@ export default function SafetyPage() {
 
       <CredentialsStrip className="py-8" />
       <CompliancePanel />
-      <CtaBand image="/images/on-site-directors.jpg" />
+      <CtaBand image="/images/projects/dural/kitchen-island.jpg" />
     </>
   )
 }
