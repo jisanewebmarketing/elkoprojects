@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { EnquiryForm } from '@/components/enquiry-form'
 import { contact } from '@/lib/site-data'
 
-const igTiles = ['/images/building-inspection.jpg', '/images/dural.jpg', '/images/st-ives.jpg']
+const igTiles = ['/images/building-inspection.jpg', '/images/dural.jpg', '/images/projects/st-ives/hero.jpg']
 
 export function InspectionQuote() {
   return (
