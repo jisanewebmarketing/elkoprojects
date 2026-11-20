@@ -92,7 +92,7 @@ export const residentialPages: ResidentialPage[] = [
     ],
     projectSlugs: ['st-ives-renovation', 'dural-renovation'],
     faqs: [DIRECTORS_FAQ, VARIATIONS_FAQ, BUDGET_FAQ],
-    image: '/images/st-ives.jpg',
+    image: '/images/projects/st-ives/hero.jpg',
   },
   {
     slug: 'alterations-additions',
@@ -134,7 +134,7 @@ export const residentialPages: ResidentialPage[] = [
     ],
     projectSlugs: [],
     faqs: [DIRECTORS_FAQ, APPROVALS_FAQ],
-    image: '/images/st-ives.jpg',
+    image: '/images/projects/st-ives/hero.jpg',
   },
   {
     slug: 'townhouse-renovations',

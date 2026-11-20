@@ -42,7 +42,7 @@ export const services: Service[] = [
           'Extensions and additions',
           'Flooring, joinery and lighting packages',
         ],
-        image: '/images/st-ives.jpg',
+        image: '/images/projects/st-ives/hero.jpg',
       },
       {
         slug: 'new-home-builds',

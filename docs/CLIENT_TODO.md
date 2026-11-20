@@ -43,12 +43,15 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
         ones were used — a couple still carry light burned-in captions
         ("Read caption ↓" etc.) from the originals. More can be added in
         `content/reels.ts`.
-- [x] **Dural "High-End Home Renovation"** — real photos added (hero + 9-image
+- [x] **St Ives "Full Home Renovation"** — real photos added (hero + 9-image
       gallery) from the client's "ELKO 11.6.25" Dropbox folder, a bushland
-      high-end home reno. **Please confirm this shoot is the Dural project** —
-      the folder was undated per-project, so the assignment is an inference; it's
-      a one-line change in `content/projects.ts` if it belongs to another job.
-      (Curated 10 of 156; the rest weren't committed.)
+      full-home reno. **Client confirmed this shoot is the St Ives project**
+      (it was initially an inference toward Dural). Photos now live under
+      `/public/images/projects/st-ives/` and the AI placeholder `st-ives.jpg`
+      has been removed. (Curated 10 of 156; the rest weren't committed.)
+- [ ] **Dural "High-End Home Renovation"** — now back to a placeholder image,
+      since the shoot above was its St Ives job, not Dural. Client to supply
+      Dural project photos; it's a one-line change in `content/projects.ts`.
 - [x] **The Osborne Display Suite** (Lane Cove) — real photos added (hero +
       9-image gallery) from the client's "ELKO 28.11.25" Dropbox folder (display
       kitchen, building model, show bathrooms). Curated 10 of 142.
@@ -60,7 +63,7 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 - [ ] Project photos for: **Willoughby, Ingleburn, Surry Hills** (remedial), Potts
       Point apartment, Monsignor John Peoples Units — still placeholder images.
       NOTE: the Dropbox "Project Photos" folder only contains two shoots
-      (ELKO 11.6.25 → Dural, ELKO 28.11.25 → Osborne); there are **no separate
+      (ELKO 11.6.25 → St Ives, ELKO 28.11.25 → Osborne); there are **no separate
       folders** for these projects yet, so the client needs to supply them.
       (Unused so far: the Dropbox "Before and Afters", "Reels" and "Videography"
       folders — more short-form video is available if wanted.)

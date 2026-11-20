@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { contact } from '@/lib/site-data'
 
-export function CtaBand({ image = '/images/st-ives.jpg' }: { image?: string }) {
+export function CtaBand({ image = '/images/projects/st-ives/hero.jpg' }: { image?: string }) {
   return (
     <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
       <div className="relative isolate overflow-hidden rounded-md text-ink-foreground">
