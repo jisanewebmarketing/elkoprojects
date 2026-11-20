@@ -30,6 +30,13 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 - [x] Director headshots (Elias Nader, Marko Bratkovic) — supplied and live in
       the directors section (home + About) and the hero "Director sign-off"
       badge, replacing the initials placeholders.
+- [ ] **Professional director headshots** — client to supply a professional
+      shoot to replace the current photos. One-file swap each:
+      `/public/images/elias-nader.jpg` and `/public/images/marko-bratkovic.jpg`
+      (also feeds the hero badge and Contact-page directors photo).
+- [x] Director bios expanded (client-supplied) — the About "Meet the directors"
+      section now carries each director's experience breakdown and operating
+      principles ("How Elias/Marko works"); data in `content/company.ts`.
 - [ ] Team / group photos — client to share; a team section can be added once
       they arrive.
 - [ ] Team shots, branded-shirt photos, project photos and videos.

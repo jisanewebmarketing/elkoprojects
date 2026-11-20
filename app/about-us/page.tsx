@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { PageHero } from '@/components/page-hero'
 import { SectionHeading } from '@/components/section-heading'
-import { DirectorsSection } from '@/components/directors-section'
+import { MeetTheDirectors } from '@/components/meet-the-directors'
 import { OnSiteStrip } from '@/components/on-site-strip'
 import { HowWeProtectYou } from '@/components/how-we-protect-you'
 import { CompliancePanel } from '@/components/compliance-panel'
@@ -49,7 +49,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <DirectorsSection />
+      <MeetTheDirectors />
 
       <OnSiteStrip />
 
