@@ -113,16 +113,30 @@ export const serviceAreas = [
   'The Hills',
 ]
 
+export type DirectorExperience = { years: string; area: string; detail: string }
+export type DirectorPrinciple = { title: string; body: string }
+
 export type Director = {
   name: string
   role: string
   quals: string
+  /** One-line focus used on the compact home-page card. */
   focus: string
+  /** Fuller bio paragraphs for the About "Meet the directors" section. */
+  summary: string[]
+  /** Years-by-area experience breakdown. */
+  experience: DirectorExperience[]
+  /** "How {first name} works" operating principles. */
+  principles: DirectorPrinciple[]
   initials: string
   // Professional headshot (supplied by the client). Falls back to an initials
-  // badge when absent.
+  // badge when absent. TODO(client): swap for the professional director shoot.
   headshot?: string
 }
+
+// Client-supplied intro for the About "Meet the directors" section.
+export const directorsIntro =
+  'Elko Projects is led by two hands-on directors with 22+ years of combined experience across remedial, residential, commercial, industrial and major infrastructure projects. Every Elko project has a director involved from start to finish.'
 
 export const directors: Director[] = [
   {
@@ -132,16 +146,46 @@ export const directors: Director[] = [
     headshot: '/images/elias-nader.jpg',
     quals: 'B. Construction Management (Construction Economics) · M. Project Management (Construction), Western Sydney University · Licensed Builder · Building Practitioner · MBA member',
     focus:
-      'Over 10 years across residential, commercial, industrial and government construction, including Sydney Metro and private aged care and retirement living. Leads pre-construction, budgets, proposals and cost control.',
+      'Runs operations, programming and client communication — bringing the systems and accountability of major infrastructure to every Elko project.',
+    summary: [
+      'At Elko, Elias runs operations, programming and client communication. He brings the systems and accountability of major infrastructure to every project — whether it is a strata remediation, a commercial fit-out or a luxury home.',
+    ],
+    experience: [
+      { years: '4 years', area: 'Remedial construction', detail: 'Restoring and protecting existing buildings for owners and strata' },
+      { years: '5 years', area: 'Residential', detail: 'Apartments, luxury townhouses and high-end apartment developments' },
+      { years: '1 year', area: 'Commercial', detail: 'Office builds and fit-outs' },
+      { years: '1 year', area: 'Industrial', detail: 'Warehouses and office suites' },
+    ],
+    principles: [
+      { title: 'Plan it properly, build it once.', body: 'Good outcomes are set up long before work starts on site.' },
+      { title: 'No surprises.', body: 'Clients, owners and strata committees always know where their project stands.' },
+      { title: 'Systems over shortcuts.', body: 'Clear processes, accurate reporting and full documentation on every job.' },
+      { title: 'Own the outcome.', body: 'If it carries the Elko name, he is accountable for it.' },
+    ],
   },
   {
     name: 'Marko Bratkovic',
     role: 'Co-Founder & Construction Director',
     initials: 'MB',
     headshot: '/images/marko-bratkovic.jpg',
-    quals: 'B. Construction Management',
+    quals: 'Bachelor of Construction Management',
     focus:
-      'Over 10 years across residential, commercial and government construction, including data centres, private aged care and retirement living, and major retail fitouts (Erina Fair, Westfield). Leads live delivery, site operations, trade coordination, QA, defects and handover.',
+      'Leads site delivery — trades, quality control and the day-to-day running of every project, delivered in occupied, live environments.',
+    summary: [
+      'Marko has 11 years of hands-on delivery experience across remedial, residential and commercial construction. He is known for his precision, high standards and ability to deliver complex work in occupied, live environments.',
+      'Marko leads Elko’s site delivery — managing trades, quality control and the day-to-day running of every project. In remedial work, he finds the root cause of a defect and fixes it properly the first time, so clients are not paying for the same problem again.',
+    ],
+    experience: [
+      { years: '4 years', area: 'Major remedial works', detail: 'Waterproofing, roof works, façade works and balcony remediation' },
+      { years: '4 years', area: 'Residential', detail: 'Apartments, luxury townhouses and high-end apartment developments' },
+      { years: '3 years', area: 'Commercial retail fit-outs', detail: 'Fast-paced shop fit-outs to tight programs, plus high-end refurbishments' },
+    ],
+    principles: [
+      { title: 'Fix the cause, not the symptom.', body: 'Every remedial job starts by understanding why it failed.' },
+      { title: 'The standard you walk past is the standard you accept.', body: 'Quality is checked at every stage, not just at handover.' },
+      { title: 'Respect the people living and working there.', body: 'Clean, safe sites with minimal disruption for residents and tenants.' },
+      { title: 'Build it like it’s your own.', body: 'Every membrane, joint and finish gets the care he’d want in his own home.' },
+    ],
   },
 ]
 
