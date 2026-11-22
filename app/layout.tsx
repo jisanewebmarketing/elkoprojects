@@ -19,6 +19,15 @@ export const metadata: Metadata = {
   description:
     'Premium residential, commercial, retirement living and remedial construction across Greater Sydney — director-led on every project.',
   alternates: { canonical: '/' },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-light-32x32.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
+    ],
+    shortcut: '/icon.svg',
+    apple: [{ url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
     type: 'website',
     siteName: 'Elko Projects',
