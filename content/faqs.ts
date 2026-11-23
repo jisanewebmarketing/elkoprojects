@@ -17,7 +17,7 @@ export const faqsByKey: Record<string, Faq[]> = {
     },
     {
       q: 'Will the directors actually be involved in my home renovation?',
-      a: 'Yes. Directors Elias Nader and Marko Bratkovic are personally involved in every project, from the first site visit and quote through to the final defect walk. Elias leads pre-construction, budgets and cost control, while Marko leads site delivery, trade coordination, quality assurance and handover.',
+      a: 'Yes. Directors Elias Nader and Marko Bratkovic are personally involved in every project, from the first site visit and quote through to the final defect walk. Elias leads operations, programming and client communication, while Marko leads site delivery, trade coordination, quality assurance and handover.',
     },
     {
       q: 'How do you stop my renovation going over budget?',
@@ -95,7 +95,7 @@ export const faqsByKey: Record<string, Faq[]> = {
     },
     {
       q: 'Who manages the display suite build day to day?',
-      a: 'Both directors. Elias Nader manages pre-construction, budget and procurement, and Marko Bratkovic manages site delivery, trade coordination, quality and handover. You deal directly with the people accountable for the finish, rather than a rotating site supervisor.',
+      a: 'Both directors. Elias Nader leads operations, programming and client communication, and Marko Bratkovic manages site delivery, trade coordination, quality and handover. You deal directly with the people accountable for the finish, rather than a rotating site supervisor.',
     },
   ],
   'building-inspections': [
