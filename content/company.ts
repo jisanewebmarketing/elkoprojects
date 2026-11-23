@@ -202,7 +202,7 @@ export type Stat = {
 }
 
 export const stats: Stat[] = [
-  { value: '22+', label: 'years combined experience', confirmed: false },
+  { value: '22+', label: 'years combined experience', confirmed: true }, // client-supplied in director bios
   { value: '100+', label: 'projects delivered', confirmed: false },
   { value: '50+', label: 'five-star reviews', confirmed: false },
   { value: 'Class 2', label: 'licensed for Class 2 buildings', confirmed: true },
@@ -222,9 +222,9 @@ export const reviewsHeadline = showUnconfirmedStats
   : 'Five-star reviews across Google, Facebook and HiPages.'
 
 // Convenience: the directors' combined-experience line for the hero badge.
-export const combinedExperienceLine = showUnconfirmedStats
-  ? '22+ years combined'
-  : 'Decades of combined experience'
+// Client-confirmed (supplied in the director bios), so shown regardless of the
+// unconfirmed-stats flag.
+export const combinedExperienceLine = '22+ years combined'
 
 export const reviews = [
   {

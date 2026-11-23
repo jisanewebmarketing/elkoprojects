@@ -11,12 +11,15 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 
 ## Must confirm before go-live
 
-- [ ] **Headline numbers.** Confirm years of experience (**22+** combined vs 21+),
-      project count (**100+** vs the older capability statement's 30+), and
+- [ ] **Headline numbers.** Confirm the remaining unconfirmed stats:
+      project count (**100+** vs the older capability statement's 30+) and
       **"50+ five-star reviews"**. These are gated behind
       `NEXT_PUBLIC_SHOW_UNCONFIRMED_STATS` (on for staging, off for production)
       and marked `confirmed: false` in `content/company.ts`. Flip `confirmed: true`
       per stat once signed off.
+  - [x] **22+ years combined experience** — confirmed; the client supplied this
+        figure in the director bios, so it is now `confirmed: true` and shows in
+        the stats band and the hero "Director sign-off" badge regardless of the flag.
 - [ ] **"$5M+ annual turnover"** — confirm the exact wording to display. Currently
       a gated placeholder in `content/company.ts` (`turnover`). Note: a business
       with >$3M annual turnover is **not** covered by the Privacy Act small

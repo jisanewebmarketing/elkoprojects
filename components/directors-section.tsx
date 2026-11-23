@@ -1,6 +1,8 @@
 import Image from 'next/image'
-import { Check } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Check } from 'lucide-react'
 import { directors } from '@/lib/site-data'
+import { directorsIntro } from '@/content/company'
 import { SectionHeading } from '@/components/section-heading'
 
 const commitments = [
@@ -17,7 +19,7 @@ export function DirectorsSection() {
         <SectionHeading
           eyebrow="Overseen by the Directors"
           title="Two directors. One standard."
-          body="Elias and Marko co-founded Elko in 2022 after a decade each across residential, commercial and government construction. Elko is small enough that both directors are personally involved in every build, and structured enough to deliver to the standard Sydney's best clients expect."
+          body={directorsIntro}
         />
 
         <ul className="grid gap-6 lg:grid-cols-2">
@@ -47,6 +49,13 @@ export function DirectorsSection() {
             </li>
           ))}
         </ul>
+
+        <Link
+          href="/about-us"
+          className="inline-flex items-center gap-2 font-semibold text-primary hover:underline"
+        >
+          Meet the directors in full <ArrowRight className="size-4" aria-hidden />
+        </Link>
 
         <ul className="grid gap-3 sm:grid-cols-2">
           {commitments.map((c) => (
