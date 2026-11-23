@@ -1,49 +1,13 @@
 'use server'
 
 import { headers } from 'next/headers'
+import { FROM_EMAIL, recipients, esc, sendViaResend, rateLimited } from '@/lib/email'
 
 export type SubmitResult = { ok: true } | { ok: false; error: string }
 
-// Very small in-memory rate limiter (per server instance). Good enough as a
-// first line of defence alongside the honeypot; swap for a shared store if the
-// site scales to many instances.
-const WINDOW_MS = 60_000
-const MAX_PER_WINDOW = 5
-const hits = new Map<string, number[]>()
-
-function rateLimited(ip: string) {
-  const now = Date.now()
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS)
-  recent.push(now)
-  hits.set(ip, recent)
-  return recent.length > MAX_PER_WINDOW
-}
-
-const ADMIN_EMAIL = process.env.CONTACT_EMAIL || 'admin@elkoprojects.com.au'
-const FROM_EMAIL = process.env.CONTACT_FROM_EMAIL || 'Elko Projects Website <noreply@elkoprojects.com.au>'
 const MAX_FILES = 5
 const MAX_FILE_BYTES = 10 * 1024 * 1024 // 10 MB
 const ALLOWED = /\.(pdf|jpe?g|png)$/i
-
-function esc(s: string) {
-  return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string)
-}
-
-async function sendViaResend(payload: Record<string, unknown>) {
-  const key = process.env.RESEND_API_KEY
-  if (!key) {
-    // Not configured — the form still succeeds so staging works, but no email is
-    // sent. Set RESEND_API_KEY (and verify the sending domain) for production.
-    console.warn('[book-a-consultation] RESEND_API_KEY not set — enquiry NOT emailed.')
-    return
-  }
-  const res = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-  })
-  if (!res.ok) throw new Error(`Resend responded ${res.status}`)
-}
 
 export async function submitConsultation(formData: FormData): Promise<SubmitResult> {
   try {
@@ -101,7 +65,7 @@ export async function submitConsultation(formData: FormData): Promise<SubmitResu
 
     await sendViaResend({
       from: FROM_EMAIL,
-      to: [ADMIN_EMAIL],
+      to: recipients,
       reply_to: email,
       subject: `Site visit & quote — ${name} (${category})`,
       html: adminHtml,

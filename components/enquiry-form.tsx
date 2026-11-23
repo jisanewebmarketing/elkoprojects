@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useState, useTransition, type FormEvent } from 'react'
 import { CheckCircle2 } from 'lucide-react'
+import { submitEnquiry } from '@/app/contact-us/actions'
 
 type Field = {
   name: string
@@ -25,11 +26,23 @@ export function EnquiryForm({
   successTitle?: string
 }) {
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [pending, startTransition] = useTransition()
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!e.currentTarget.checkValidity()) return
-    setSent(true)
+    const form = e.currentTarget
+    if (!form.checkValidity()) {
+      form.reportValidity()
+      return
+    }
+    const data = new FormData(form)
+    setError(null)
+    startTransition(async () => {
+      const res = await submitEnquiry(data)
+      if (res.ok) setSent(true)
+      else setError(res.error)
+    })
   }
 
   if (sent) {
@@ -46,6 +59,16 @@ export function EnquiryForm({
 
   return (
     <form onSubmit={onSubmit} className="grid gap-5 rounded-md border border-border bg-card p-6 md:grid-cols-2 md:p-8">
+      {/* Honeypot — hidden from real users, catches bots. */}
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden
+        className="hidden"
+        defaultValue=""
+      />
       {fields.map((f) => {
         const id = `f-${f.name}`
         const wide = f.type === 'textarea'
@@ -79,12 +102,18 @@ export function EnquiryForm({
           </div>
         )
       })}
-      <div className="md:col-span-2">
+      <div className="flex flex-col gap-3 md:col-span-2">
+        {error && (
+          <p role="alert" className="text-sm font-medium text-destructive">
+            {error}
+          </p>
+        )}
         <button
           type="submit"
-          className="w-full rounded-sm bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-90 md:w-auto"
+          disabled={pending}
+          className="w-full rounded-sm bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
         >
-          {submitLabel}
+          {pending ? 'Sending…' : submitLabel}
         </button>
       </div>
     </form>
