@@ -70,10 +70,11 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
       shots) now runs on the **home page and About**, and a directors photo sits
       on the **Contact** page. Files in `/public/images/team` and
       `/public/images/contact-directors.jpg`.
-- [ ] Project photos for: **Willoughby, Ingleburn, Surry Hills** (remedial), Potts
-      Point apartment, Monsignor John Peoples Units, **Dural** — these now use
-      interim stand-in images (so no card is blank) but still need real
-      project-specific photography.
+- [x] **Potts Point** (Luxury Apartment Transformation) — real finished photo
+      supplied and live (`/public/images/projects/potts-point/hero.jpg`).
+- [ ] Project photos for: **Willoughby, Ingleburn, Surry Hills** (remedial),
+      Monsignor John Peoples Units, **Dural** — these still use interim stand-in
+      images (so no card is blank) but need real project-specific photography.
       NOTE: the Dropbox "Project Photos" folder only contains two shoots
       (ELKO 11.6.25 → St Ives, ELKO 28.11.25 → Osborne); there are **no separate
       folders** for these projects yet, so the client needs to supply them.
