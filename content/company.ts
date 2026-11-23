@@ -168,7 +168,7 @@ export const directors: Director[] = [
     role: 'Co-Founder & Construction Director',
     initials: 'MB',
     headshot: '/images/marko-bratkovic.jpg',
-    quals: 'Bachelor of Construction Management',
+    quals: 'Bachelor of Construction Management · Licensed Builder · Building Practitioner · MBA member · HIA Member',
     focus:
       'Leads site delivery — trades, quality control and the day-to-day running of every project, delivered in occupied, live environments.',
     summary: [
