@@ -206,8 +206,9 @@ export const projects: Project[] = [
     category: 'Residential',
     type: 'Apartment',
     scope: 'Luxury apartment transformation (with Sokkar Group)',
-    image: '/images/osborne-lane-cove.jpg', // interim stand-in — TODO(client): project-specific photos
+    image: '/images/projects/potts-point/hero.jpg',
     status: 'Live',
+    featured: true,
   },
 ]
 
