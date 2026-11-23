@@ -144,7 +144,7 @@ export const directors: Director[] = [
     role: 'Co-Founder & Operations Director',
     initials: 'EN',
     headshot: '/images/elias-nader.jpg',
-    quals: 'B. Construction Management (Construction Economics) · M. Project Management (Construction), Western Sydney University · Licensed Builder · Building Practitioner · MBA member',
+    quals: 'B. Construction Management (Construction Economics) · M. Project Management (Construction), Western Sydney University · Licensed Builder · Building Practitioner · MBA member · HIA Member',
     focus:
       'Runs operations, programming and client communication — bringing the systems and accountability of major infrastructure to every Elko project.',
     summary: [
