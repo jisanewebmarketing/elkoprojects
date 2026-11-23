@@ -2,7 +2,8 @@
 // `category` stays within the existing display union so the gallery filter and
 // <RelatedProjects/> keep working; `type` carries the finer-grained spec type.
 // `featured: true` means a real photo exists and the project is safe to surface
-// on the homepage. Projects without photos use /placeholder.svg (TODO(client)).
+// on the homepage. Projects without their own photos use an interim stand-in
+// image (TODO(client): real project-specific photography).
 
 export type ProjectCategory =
   | 'Residential'
@@ -115,7 +116,7 @@ export const projects: Project[] = [
     category: 'Residential',
     type: 'Residential',
     scope: 'High-end full home renovation',
-    image: '/placeholder.svg', // TODO(client): Dural project photos (the shoot previously here is the St Ives job)
+    image: '/images/dural.jpg', // interim stand-in — TODO(client): real Dural project photos
     status: 'Complete',
   },
   {
@@ -177,7 +178,7 @@ export const projects: Project[] = [
     category: 'Remedial',
     type: 'Remedial',
     scope: 'Industrial roof & façade repairs',
-    image: '/placeholder.svg', // TODO(client): project-specific photos
+    image: '/images/safety-onsite.jpg', // interim stand-in — TODO(client): project-specific photos
     status: 'Complete 2025',
     year: '2025',
     caseStudy:
@@ -191,7 +192,7 @@ export const projects: Project[] = [
     category: 'Remedial',
     type: 'Remedial',
     scope: 'Roof repairs & leak rectification',
-    image: '/placeholder.svg', // TODO(client): project-specific photos
+    image: '/images/team/detail.jpg', // interim stand-in — TODO(client): project-specific photos
     status: 'Complete 2023',
     year: '2023',
     caseStudy:
@@ -205,7 +206,7 @@ export const projects: Project[] = [
     category: 'Residential',
     type: 'Apartment',
     scope: 'Luxury apartment transformation (with Sokkar Group)',
-    image: '/placeholder.svg', // TODO(client): project-specific photos
+    image: '/images/osborne-lane-cove.jpg', // interim stand-in — TODO(client): project-specific photos
     status: 'Live',
   },
 ]
