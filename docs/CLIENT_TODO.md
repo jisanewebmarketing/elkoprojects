@@ -143,9 +143,14 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
 - [ ] **Terms of Use** (`/terms-of-use`) is a drafted starting point and must be
       reviewed by Elko's lawyer before go-live (it carries a visible "Draft for
       review" banner). It governs website use only — not the building contract.
-- [ ] **Confirm the enquiry destination inbox.** Submissions from
-      `/book-a-consultation` email to `CONTACT_EMAIL` (defaults to
-      `admin@elkoprojects.com.au`). Confirm the address and the From address.
+- [x] **Enquiry email configured and live.** Both the Contact and
+      Book-a-consultation forms email via Resend: `RESEND_API_KEY` is set in the
+      Vercel project (encrypted) and the sending domain `elkoprojects.com.au` is
+      verified in Resend (sending enabled). Notifications go to
+      `admin@elkoprojects.com.au`, `jisan@ewebmarketing.com.au` and
+      `nauman@ewebmarketing.com.au` (default in `lib/email.ts`, override with
+      `CONTACT_EMAIL`); the From address is `noreply@elkoprojects.com.au`.
+      NOTE: rotate `RESEND_API_KEY` once confirmed (the key was shared in chat).
 - [ ] Decide whether the enquirer confirmation email copy is acceptable
       (`app/book-a-consultation/actions.ts`).
 
