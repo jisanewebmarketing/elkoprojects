@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { ThankYou } from '@/components/thank-you'
+import { FormConversion } from '@/components/form-conversion'
 
 export const metadata: Metadata = {
   title: 'Thank you',
@@ -10,10 +11,13 @@ export const metadata: Metadata = {
 
 export default function ConsultationThankYouPage() {
   return (
-    <ThankYou
-      eyebrow="Request received"
-      title="Your request is in."
-      message="Thanks — a director will be in touch within one business day to arrange your free site visit and quote."
-    />
+    <>
+      <FormConversion formType="consultation" />
+      <ThankYou
+        eyebrow="Request received"
+        title="Your request is in."
+        message="Thanks — a director will be in touch within one business day to arrange your free site visit and quote."
+      />
+    </>
   )
 }
