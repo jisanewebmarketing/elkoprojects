@@ -17,6 +17,7 @@ export function InspectionQuote() {
         <div className="mt-8">
           <EnquiryForm
             submitLabel="Request a quote"
+            redirectTo="/building-inspections/thank-you"
             fields={[
               { name: 'name', label: 'Name', required: true, autoComplete: 'name' },
               { name: 'phone', label: 'Phone', type: 'tel', required: true, autoComplete: 'tel' },

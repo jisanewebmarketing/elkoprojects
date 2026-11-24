@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useTransition, type FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
 import { submitEnquiry } from '@/app/contact-us/actions'
 
@@ -20,11 +21,15 @@ export function EnquiryForm({
   fields,
   submitLabel,
   successTitle = 'Thanks, we have your details.',
+  redirectTo,
 }: {
   fields: Field[]
   submitLabel: string
   successTitle?: string
+  /** When set, navigate here on success instead of showing the inline message. */
+  redirectTo?: string
 }) {
+  const router = useRouter()
   const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [pending, startTransition] = useTransition()
@@ -40,8 +45,12 @@ export function EnquiryForm({
     setError(null)
     startTransition(async () => {
       const res = await submitEnquiry(data)
-      if (res.ok) setSent(true)
-      else setError(res.error)
+      if (!res.ok) {
+        setError(res.error)
+        return
+      }
+      if (redirectTo) router.push(redirectTo)
+      else setSent(true)
     })
   }
 
