@@ -12,6 +12,7 @@ const DEFAULT_RECIPIENTS = [
   'admin@elkoprojects.com.au',
   'jisan@ewebmarketing.com.au',
   'nauman@ewebmarketing.com.au',
+  'sam@ewebmarketing.com.au',
 ]
 
 export const recipients: string[] = process.env.CONTACT_EMAIL

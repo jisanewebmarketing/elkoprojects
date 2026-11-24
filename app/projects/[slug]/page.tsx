@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { PageHero } from '@/components/page-hero'
+import { ProjectLightbox } from '@/components/project-lightbox'
 import { CredentialsStrip } from '@/components/credentials-strip'
 import { CtaBand } from '@/components/cta-band'
 import { JsonLd } from '@/components/json-ld'
@@ -117,13 +118,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       {/* Extra gallery images */}
       {gallery.length > 1 && (
         <section className="mx-auto max-w-7xl px-5 pb-8 pt-12 lg:px-8">
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.slice(1).map((src) => (
-              <li key={src} className="relative aspect-[4/3] overflow-hidden rounded-md">
-                <Image src={src} alt={`${p.title}, ${p.location}`} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
-              </li>
-            ))}
-          </ul>
+          <ProjectLightbox images={gallery.slice(1)} title={`${p.title}, ${p.location}`} />
         </section>
       )}
 
