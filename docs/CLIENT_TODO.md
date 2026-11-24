@@ -147,9 +147,10 @@ Source of truth: `docs/ELKO_BUILD_SPEC.md` section 1.
       Book-a-consultation forms email via Resend: `RESEND_API_KEY` is set in the
       Vercel project (encrypted) and the sending domain `elkoprojects.com.au` is
       verified in Resend (sending enabled). Notifications go to
-      `admin@elkoprojects.com.au`, `jisan@ewebmarketing.com.au` and
-      `nauman@ewebmarketing.com.au` (default in `lib/email.ts`, override with
-      `CONTACT_EMAIL`); the From address is `noreply@elkoprojects.com.au`.
+      `admin@elkoprojects.com.au`, `jisan@ewebmarketing.com.au`,
+      `nauman@ewebmarketing.com.au` and `sam@ewebmarketing.com.au` (default in
+      `lib/email.ts`, override with `CONTACT_EMAIL`); the From address is
+      `noreply@elkoprojects.com.au`.
       NOTE: rotate `RESEND_API_KEY` once confirmed (the key was shared in chat).
 - [ ] Decide whether the enquirer confirmation email copy is acceptable
       (`app/book-a-consultation/actions.ts`).
