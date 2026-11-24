@@ -38,13 +38,16 @@ export function ThankYou({
         </Link>
       </div>
 
-      <p className="text-sm text-muted-foreground">
-        Prefer to talk now? Call Elias on{' '}
-        <a href={contact.phones[0].href} className="font-semibold text-foreground hover:text-primary">
-          {contact.phones[0].display}
-        </a>
-        .
-      </p>
+      <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground">
+        <span>Prefer to talk now? Call a director:</span>
+        <span className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+          {contact.phones.map((ph) => (
+            <a key={ph.href} href={ph.href} className="font-semibold text-foreground hover:text-primary">
+              {ph.name} <span className="font-normal text-muted-foreground">·</span> {ph.display}
+            </a>
+          ))}
+        </span>
+      </div>
     </section>
   )
 }
