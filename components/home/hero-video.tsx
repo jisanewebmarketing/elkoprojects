@@ -2,13 +2,26 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowRight, Pause, Play } from 'lucide-react'
 import { combinedExperienceLine, directors } from '@/content/company'
 
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(true)
+  const [showVideo, setShowVideo] = useState(false)
+
+  // Only load the background video on larger screens with a good connection, so
+  // the mobile LCP is the optimized poster image rather than a video download.
+  useEffect(() => {
+    const big = window.matchMedia('(min-width: 768px)').matches
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+    if (big && !conn?.saveData) setShowVideo(true)
+  }, [])
+
+  useEffect(() => {
+    if (showVideo) videoRef.current?.play().catch(() => {})
+  }, [showVideo])
 
   const toggle = () => {
     const v = videoRef.current
@@ -24,17 +37,29 @@ export function HeroVideo() {
 
   return (
     <section className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden text-ink-foreground">
-      <video
-        ref={videoRef}
-        className="absolute inset-0 -z-20 size-full object-cover"
-        src="/videos/elko-hero.mp4"
-        poster="/images/hero-poster.jpg"
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Poster paints first (the LCP); the video layers over it on capable devices. */}
+      <Image
+        src="/images/hero-poster.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 object-cover"
         aria-hidden
       />
+      {showVideo && (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 -z-20 size-full object-cover"
+          src="/videos/elko-hero.mp4"
+          poster="/images/hero-poster.jpg"
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden
+        />
+      )}
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/85 via-ink/35 to-ink/40" aria-hidden />
 
       <div className="mx-auto w-full max-w-7xl px-5 pb-12 pt-32 lg:px-8 lg:pb-16">
@@ -110,15 +135,17 @@ export function HeroVideo() {
 
         <div className="mt-10 flex items-center justify-between gap-4 border-t border-ink-foreground/25 pt-5 text-sm text-ink-foreground/85">
           <p>Footage: St Ives, Lane Cove, Dural, Yowie Bay and Sylvania projects</p>
-          <button
-            type="button"
-            onClick={toggle}
-            className="flex items-center gap-2 rounded-sm px-2 py-1 font-medium hover:bg-ink-foreground/10"
-            aria-label={playing ? 'Pause background video' : 'Play background video'}
-          >
-            {playing ? <Pause className="size-4" aria-hidden /> : <Play className="size-4" aria-hidden />}
-            <span className="hidden sm:inline">{playing ? 'Pause' : 'Play'}</span>
-          </button>
+          {showVideo && (
+            <button
+              type="button"
+              onClick={toggle}
+              className="flex items-center gap-2 rounded-sm px-2 py-1 font-medium hover:bg-ink-foreground/10"
+              aria-label={playing ? 'Pause background video' : 'Play background video'}
+            >
+              {playing ? <Pause className="size-4" aria-hidden /> : <Play className="size-4" aria-hidden />}
+              <span className="hidden sm:inline">{playing ? 'Pause' : 'Play'}</span>
+            </button>
+          )}
         </div>
       </div>
     </section>
