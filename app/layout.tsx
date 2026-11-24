@@ -11,9 +11,10 @@ import './globals.css'
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo', weight: ['500', '700', '800'] })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
-// Google Tag Manager + Google Analytics 4 (loaded site-wide).
+// Google Tag Manager + Google Analytics 4 + Meta Pixel (loaded site-wide).
 const GTM_ID = 'GTM-MHZGL8JL'
 const GA_ID = 'G-GP6VZ4R5GW'
+const META_PIXEL_ID = '1136274239182063'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -69,6 +70,18 @@ export default function RootLayout({
           />
         </noscript>
 
+        {/* Meta Pixel (noscript) */}
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            alt=""
+            style={{ display: 'none' }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+          />
+        </noscript>
+
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-sm focus:bg-background focus:px-4 focus:py-2">
           Skip to content
@@ -94,6 +107,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', '${GA_ID}');`}
+        </Script>
+
+        {/* Meta Pixel */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${META_PIXEL_ID}');
+fbq('track', 'PageView');`}
         </Script>
       </body>
     </html>
