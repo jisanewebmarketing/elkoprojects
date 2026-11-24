@@ -31,6 +31,7 @@ export default function ContactPage() {
           </div>
           <EnquiryForm
             submitLabel="Send enquiry"
+            redirectTo="/contact-us/thank-you"
             fields={[
               { name: 'name', label: 'Name', required: true, autoComplete: 'name' },
               { name: 'phone', label: 'Phone', type: 'tel', required: true, autoComplete: 'tel' },

@@ -1,8 +1,9 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { ArrowLeft, ArrowRight, CheckCircle2, Paperclip, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Paperclip, X } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { submitConsultation } from '@/app/book-a-consultation/actions'
 
@@ -22,13 +23,13 @@ type Values = Record<string, string>
 const STEPS = ['Your details', 'Your property', 'The work', 'Budget & timing', 'About you']
 
 export function ConsultationForm({ categories }: { categories: ServiceCategory[] }) {
+  const router = useRouter()
   const [step, setStep] = useState(0)
   const [values, setValues] = useState<Values>({ contactMethod: 'Either' })
   const [files, setFiles] = useState<File[]>([])
   const [consent, setConsent] = useState(false)
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
-  const [sent, setSent] = useState(false)
 
   const set = (k: string, v: string) => setValues((p) => ({ ...p, [k]: v }))
   const subs = useMemo(() => categories.find((c) => c.label === values.category)?.subs ?? [], [categories, values.category])
@@ -77,21 +78,12 @@ export function ConsultationForm({ categories }: { categories: ServiceCategory[]
     if (consent) fd.append('consent', 'on')
     files.forEach((f) => fd.append('files', f))
     const res = await submitConsultation(fd)
+    if (res.ok) {
+      router.push('/book-a-consultation/thank-you')
+      return
+    }
     setSubmitting(false)
-    if (res.ok) setSent(true)
-    else setError(res.error)
-  }
-
-  if (sent) {
-    return (
-      <div role="status" className="flex flex-col items-start gap-3 rounded-md border border-border bg-card p-8">
-        <CheckCircle2 className="size-8 text-primary" aria-hidden />
-        <p className="font-display text-2xl font-bold">Your request is in.</p>
-        <p className="leading-relaxed text-muted-foreground">
-          Thanks — a director will be in touch within one business day to arrange your free site visit and quote.
-        </p>
-      </div>
-    )
+    setError(res.error)
   }
 
   return (
