@@ -210,6 +210,23 @@ export const projects: Project[] = [
     status: 'Live',
     featured: true,
   },
+  {
+    slug: 'mosman-renovation',
+    title: 'High-End Internal Renovation',
+    location: 'Mosman',
+    region: 'Lower North Shore',
+    category: 'Residential',
+    type: 'Residential',
+    scope: 'High-end internal renovation with bespoke bathrooms and joinery',
+    image: '/images/projects/mosman/hero.jpg',
+    status: 'Complete',
+    featured: true,
+    tags: ['Internal renovation', 'Bathrooms', 'Freestanding bath', 'Marble', 'Custom joinery', 'Walk-in shower'],
+    gallery: [
+      '/images/projects/mosman/vanity.jpg',
+      '/images/projects/mosman/shower.jpg',
+    ],
+  },
 ]
 
 export function getProject(slug: string) {
