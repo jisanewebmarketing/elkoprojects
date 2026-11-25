@@ -82,24 +82,23 @@
 
 @keyframes rise {
   from {
-    opacity: 0;
     transform: translateY(18px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Transform-only entrance: the text stays visible from first paint (so it never
+   delays LCP), and simply slides up. `both` holds the start offset during any
+   stagger delay instead of jumping. */
 .rise {
-  opacity: 0;
-  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .rise {
     animation: none;
-    opacity: 1;
   }
   html {
     scroll-behavior: auto;
