@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   description:
     'Premium residential, commercial, retirement living and remedial construction across Greater Sydney — director-led on every project.',
   alternates: { canonical: '/' },
+  verification: {
+    google: 'pC644zF5EAxU2MMGJKckKHy19tvGUPjA37pqg8nCW3U',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32', type: 'image/x-icon' },
