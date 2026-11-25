@@ -110,7 +110,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {open && <MobileDrawer pathname={pathname} />}
+      {open && <MobileDrawer pathname={pathname} onNavigate={() => setOpen(false)} />}
     </header>
   )
 }
@@ -223,7 +223,7 @@ function NavCard({ child, compact = false }: { child: NavLink; compact?: boolean
 
 /* ----------------------------- mobile ----------------------------- */
 
-function MobileDrawer({ pathname }: { pathname: string }) {
+function MobileDrawer({ pathname, onNavigate }: { pathname: string; onNavigate: () => void }) {
   return (
     <nav
       id="mobile-nav"
@@ -236,7 +236,7 @@ function MobileDrawer({ pathname }: { pathname: string }) {
           if (!item.children?.length) {
             return (
               <li key={item.label} className="border-b border-border">
-                <Link href={item.href!} className={cn('block py-3.5 font-display text-lg font-semibold', active && 'text-primary')}>
+                <Link href={item.href!} onClick={onNavigate} className={cn('block py-3.5 font-display text-lg font-semibold', active && 'text-primary')}>
                   {item.label}
                 </Link>
               </li>
@@ -254,7 +254,7 @@ function MobileDrawer({ pathname }: { pathname: string }) {
                     const Icon = child.icon ? icons[child.icon] : undefined
                     return (
                       <li key={child.href}>
-                        <Link href={child.href} className="flex items-start gap-3 rounded-lg p-2.5 hover:bg-secondary">
+                        <Link href={child.href} onClick={onNavigate} className="flex items-start gap-3 rounded-lg p-2.5 hover:bg-secondary">
                           {Icon && (
                             <span className="flex size-8 shrink-0 items-center justify-center rounded-md bg-accent text-accent-foreground">
                               <Icon className="size-4" aria-hidden />
@@ -278,11 +278,12 @@ function MobileDrawer({ pathname }: { pathname: string }) {
       <div className="mx-auto flex max-w-[90rem] flex-col gap-3 px-5 pb-6 pt-2">
         <Link
           href={CTA_HREF}
+          onClick={onNavigate}
           className="inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-4 py-3.5 font-semibold text-primary-foreground"
         >
           {CTA_LABEL} <ArrowRight className="size-4" aria-hidden />
         </Link>
-        <a href={contact.phones[0].href} className="inline-flex items-center justify-center gap-2 rounded-sm border border-border py-3 font-semibold text-primary">
+        <a href={contact.phones[0].href} onClick={onNavigate} className="inline-flex items-center justify-center gap-2 rounded-sm border border-border py-3 font-semibold text-primary">
           <Phone className="size-4" aria-hidden />
           {`Call ${contact.phones[0].name} · ${contact.phones[0].display}`}
         </a>
